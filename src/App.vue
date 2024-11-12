@@ -2,6 +2,7 @@
 
 	<main-header />
 	<menu-header />
+	<web-socket />
 	<!-- <button-row>
 		<click-button label="Click me"       type="primary"   />
 		<click-button label="Click me"       type="secondair" />
