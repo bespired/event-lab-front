@@ -1,0 +1,10 @@
+body {
+    font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    background-color: #f7f9f8;
+    color: #25292a;
+    box-sizing: border-box;
+    & div { box-sizing: border-box; }
+}

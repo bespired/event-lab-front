@@ -1,0 +1,41 @@
+---
+    styles:
+        - primary
+        - secondair
+        - info
+        - positive
+        - negative
+        - success
+        - warning
+        - danger
+        - error
+        - light
+        - dark
+        - link
+
+    colors:
+        primary:   rgb(52, 97, 155)
+        secondair: rgb(252, 196, 59)
+        info:      rgb(118, 140, 251)
+        positive:  rgb(103, 191, 46)
+        negative:  rgb(210, 13, 48)
+        success:   rgb(103, 191, 46)
+        warning:   rgb(255, 88, 20)
+        danger:    rgb(255, 88, 20)
+        error:     rgb(210, 13, 48)
+        light:     rgb(253, 251, 253)
+        dark:      rgb(37, 41, 42)
+        link:      rgb(52, 97, 155)
+
+    font:
+        sans-serif: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+        monospace:  SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+
+    body:
+        font-family: sans-serif
+        font-size: 1rem
+        font-weight: 500
+        line-height: 1.5
+        bg: light
+        fg: dark
+

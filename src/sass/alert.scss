@@ -1,0 +1,68 @@
+.alert-bar { 
+    display: inline-flex; 
+    padding: 3px 10px 4px 10px; 
+    border-radius: 4px; 
+    user-select: none; 
+    align-self: center; 
+    justify-content: center; 
+    &.primary {
+        background-color: #eff3f7;
+        color: #34619b;
+        border: 1px solid #34619b;
+    }
+    &.secondair {
+        background-color: #fffbf0;
+        color: #fcc43b;
+        border: 1px solid #fcc43b;
+    }
+    &.info {
+        background-color: #f5f6ff;
+        color: #768cfb;
+        border: 1px solid #768cfb;
+    }
+    &.positive {
+        background-color: #f3faef;
+        color: #67bf2e;
+        border: 1px solid #67bf2e;
+    }
+    &.negative {
+        background-color: #fcecef;
+        color: #d20d30;
+        border: 1px solid #d20d30;
+    }
+    &.success {
+        background-color: #f3faef;
+        color: #67bf2e;
+        border: 1px solid #67bf2e;
+    }
+    &.warning {
+        background-color: #fff2ed;
+        color: #ff5814;
+        border: 1px solid #ff5814;
+    }
+    &.danger {
+        background-color: #fff2ed;
+        color: #ff5814;
+        border: 1px solid #ff5814;
+    }
+    &.error {
+        background-color: #fcecef;
+        color: #d20d30;
+        border: 1px solid #d20d30;
+    }
+    &.light {
+        background-color: #ffffff;
+        color: #fdfbfd;
+        border: 1px solid #fdfbfd;
+    }
+    &.dark {
+        background-color: #eeeeee;
+        color: #25292a;
+        border: 1px solid #25292a;
+    }
+    &.link {
+        background-color: #eff3f7;
+        color: #34619b;
+        border: 1px solid #34619b;
+    }
+} 

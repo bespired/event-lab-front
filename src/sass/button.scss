@@ -1,0 +1,90 @@
+.click-button {
+    display: inline-flex;
+    padding: 3px 8px 4px 8px;
+    color: #fdfbfd;
+    border-radius: 4px;
+    user-select: none;
+    align-self: center;
+    justify-content: center;
+    transition: background-color 0.25s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        filter: brightness(0.9);
+    }
+    &.primary {
+        background-color: #34619b;
+        &:hover {
+            background-color: #3e74ba;
+       }
+    }
+    &.secondair {
+        background-color: #fcc43b;
+        &:hover {
+            background-color: #ffeb46;
+       }
+    }
+    &.info {
+        background-color: #768cfb;
+        &:hover {
+            background-color: #8da8ff;
+       }
+    }
+    &.positive {
+        background-color: #67bf2e;
+        &:hover {
+            background-color: #7be537;
+       }
+    }
+    &.negative {
+        background-color: #d20d30;
+        &:hover {
+            background-color: #fc0f39;
+       }
+    }
+    &.success {
+        background-color: #67bf2e;
+        &:hover {
+            background-color: #7be537;
+       }
+    }
+    &.warning {
+        background-color: #ff5814;
+        &:hover {
+            background-color: #ff6918;
+       }
+    }
+    &.danger {
+        background-color: #ff5814;
+        &:hover {
+            background-color: #ff6918;
+       }
+    }
+    &.error {
+        background-color: #d20d30;
+        &:hover {
+            background-color: #fc0f39;
+       }
+    }
+    &.light {
+        background-color: #fdfbfd;
+        &:hover {
+            background-color: #ffffff;
+       }
+    }
+    &.dark {
+        background-color: #25292a;
+        &:hover {
+            background-color: #2c3132;
+       }
+    }
+    &.link {
+        text-decoration: underline;
+        color:rgb(52, 97, 155);
+        background-color: rgba(0,0,0,0);
+        &:hover {
+            background-color: rgba(52, 97, 155, 0.1);
+       }
+    }
+}
