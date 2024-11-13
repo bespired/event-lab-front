@@ -2,6 +2,9 @@
     <div class="main-header">
         <span><logo-svg /></span>
         <span>EVENT LAB</span>
+
+        <span class="space" />
+        <span @click="$emit('login')">Login</span>
     </div>
 </template>
 
@@ -33,4 +36,9 @@ export default {
 .main-header span svg{
     max-height: 50px;
 }
+
+.main-header span.space{
+    margin-left: auto;
+}
+
 </style>

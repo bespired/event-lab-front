@@ -1,6 +1,6 @@
 <template>
 
-	<main-header />
+	<main-header @login="visible=true"/>
 	<menu-header />
 	<web-socket />
 	<!-- <button-row>

@@ -6,13 +6,16 @@
         </div>
         <div class="login-layout">
             <big-label  label="Sign In" />
-            <text-input placeholder="Username" v-model="username" @inFocus="error=false"/>
-            <text-input placeholder="Password" v-model="password" type="password" @inFocus="error=false"/>
+            <text-input placeholder="Username" v-model="username"
+                @inFocus="error=false"/>
+            <text-input placeholder="Password" v-model="password"
+                type="password" @inFocus="error=false"/>
             <text-input placeholder="TFA" v-model="tfa" />
             <click-button label="Login" type="primary" @click="login()"/>
             <alert-bar    class="error" :label="msg" type="error" v-if="error"/>
             <click-button class="forgot" label="Forgot Password" type="link" />
         </div>
+        <span class="top-right" @click="$emit('completed')">×</span>
     </div>
 </template>
 
@@ -140,5 +143,25 @@ export default {
 .login-layout .forgot,
 .login-layout .primary,
 .login-layout .tfa       { width: calc(50% - 4px); }
+
+.top-right{
+    position: absolute;
+    top: 10px; right: 12px;
+/*    padding: 6px 9px;*/
+    width: 32px; height: 32px;
+    border-radius: 5px;
+    border:1px solid grey;
+    cursor: pointer;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-right:hover{
+    background-color: #3e74ba;
+    color: white;
+}
+
 
 </style>

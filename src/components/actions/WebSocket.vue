@@ -12,7 +12,9 @@ export default {
             // maybe add credentials in the url
             // wss://eventlab.com:9001/[jwwt-token]
 
-            const conn = new WebSocket('wss://eventlab.com:9001');
+            let token = localStorage.getItem('token')
+
+            const conn = new WebSocket(`wss://eventlab.com:9001/${token}`);
 
             conn.onopen = function(e) {
                 console.log("Connection established!");
