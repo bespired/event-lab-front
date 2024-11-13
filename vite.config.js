@@ -14,6 +14,12 @@ export default defineConfig({
   server: {
     host: "eventlab.com",
     port: 5180,
+    https: true,
+    hmr: {
+        host: "eventlab.com",
+        port: 5180,
+        protocol: "wss",
+    },
   },
   css: {
     preprocessorOptions: {
