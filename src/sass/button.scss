@@ -1,18 +1,36 @@
 .click-button {
     display: inline-flex;
-    padding: 3px 8px 4px 8px;
+    padding: 3px 10px 4px 8px;
     color: #fdfbfd;
     border-radius: 4px;
     user-select: none;
-    align-self: center;
+    flex-wrap: nowrap;
     justify-content: center;
+    align-self: center;
+    place-items: center;
     transition: background-color 0.25s;
+
+    & .pi {
+        margin-right: 8px;
+        font-size: .8em;
+        opacity: 0.9;
+    }
+
     &:hover {
         cursor: pointer;
     }
     &:active {
         filter: brightness(0.9);
     }
+
+    &.icon {
+        color: #34619b;
+        font-size: 0.8em;
+        &:hover {
+            color: #3e74ba;
+       }
+    }
+
     &.primary {
         background-color: #34619b;
         &:hover {

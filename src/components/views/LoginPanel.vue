@@ -6,10 +6,8 @@
         </div>
         <div class="login-layout">
             <big-label  label="Sign In" />
-            <text-input placeholder="Username" v-model="username"
-                @inFocus="error=false"/>
-            <text-input placeholder="Password" v-model="password"
-                type="password" @inFocus="error=false"/>
+            <text-input placeholder="Username" v-model="username" @inFocus="error=false"/>
+            <text-input placeholder="Password" v-model="password" type="password" @inFocus="error=false"/>
             <text-input placeholder="TFA" v-model="tfa" />
             <click-button label="Login" type="primary" @click="login()"/>
             <alert-bar    class="error" :label="msg" type="error" v-if="error"/>
@@ -59,6 +57,8 @@ export default {
             localStorage.setItem("contact", json.message.contact);
             localStorage.setItem("token", json.token);
 
+            this.$store.commit('main/setLoggedIn')
+
             // can I sign on into other domains with iframe?
 
 
@@ -88,13 +88,12 @@ export default {
                 headers: headers,
                 body: JSON.stringify(object),
             })
-                .then(response=>response.json())
-                .then(json=> {
-                    if (json.hasOwnProperty('success')) this.success(json)
-                    if (json.hasOwnProperty('error'))   this.fail(json)
-                });
+            .then(response=>response.json())
+            .then(json=> {
+                if (json.hasOwnProperty('success')) this.success(json)
+                if (json.hasOwnProperty('error'))   this.fail(json)
+            });
 
-            console.log('Login')
 
         }
     },
@@ -103,64 +102,62 @@ export default {
 </script>
 
 <style>
-.login-panel {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    user-select: none;
-}
-
-.event-lab-logo {
-    img {
-        max-height: 80px;
-        margin-top: 27px;
+    .login-panel {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        user-select: none;
     }
-    margin-right: 20px;
-    font-weight: 900;
-}
 
-.event-lab.header {
-    min-height: 24px;
-    background-color: green;
-}
+    .event-lab-logo {
+        img {
+            max-height: 80px;
+            margin-top: 27px;
+        }
+        margin-right: 20px;
+        font-weight: 900;
+    }
 
-.login-layout {
-    display: flex;
-    flex-wrap: wrap;
+    .event-lab.header {
+        min-height: 24px;
+        background-color: green;
+    }
 
-   /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);*/
-    gap: 8px;
-    max-width: 320px;
-    margin-bottom: 24px;
-}
-.login-layout .error,
-.login-layout .username,
-.login-layout .password,
-.login-layout .big-label { width: 100% }
+    .login-layout {
+        display: flex;
+        flex-wrap: wrap;
 
-.login-layout .forgot,
-.login-layout .primary,
-.login-layout .tfa       { width: calc(50% - 4px); }
+       /* display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);*/
+        gap: 8px;
+        max-width: 320px;
+        margin-bottom: 24px;
+    }
+    .login-layout .error,
+    .login-layout .username,
+    .login-layout .password,
+    .login-layout .big-label { width: 100% }
 
-.top-right{
-    position: absolute;
-    top: 10px; right: 12px;
-    width: 32px; height: 32px;
-    border-radius: 5px;
-    border:1px solid grey;
-    cursor: pointer;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .login-layout .forgot,
+    .login-layout .primary,
+    .login-layout .tfa       { width: calc(50% - 4px); }
 
-.top-right:hover{
-    background-color: #dde5e8;
-    color: #101010;
-}
+    .top-right{
+        position: absolute;
+        top: 10px; right: 12px;
+        width: 32px; height: 32px;
+        border-radius: 5px;
+        border:1px solid grey;
+        cursor: pointer;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-
+    .top-right:hover{
+        background-color: #dde5e8;
+        color: #101010;
+    }
 </style>
