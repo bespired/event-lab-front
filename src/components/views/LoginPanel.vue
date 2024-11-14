@@ -147,7 +147,6 @@ export default {
 .top-right{
     position: absolute;
     top: 10px; right: 12px;
-/*    padding: 6px 9px;*/
     width: 32px; height: 32px;
     border-radius: 5px;
     border:1px solid grey;
@@ -159,8 +158,8 @@ export default {
 }
 
 .top-right:hover{
-    background-color: #3e74ba;
-    color: white;
+    background-color: #dde5e8;
+    color: #101010;
 }
 
 
