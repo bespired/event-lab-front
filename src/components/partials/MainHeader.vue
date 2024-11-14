@@ -26,6 +26,7 @@
 
     function logout() {
         store.state.main.isLoggedIn = false
+        localStorage.removeItem('token')
         // tell profile/redis ?
     }
 </script>

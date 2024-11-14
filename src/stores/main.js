@@ -11,7 +11,7 @@ export default {
 
 	mutations: {
 		setLoggedIn:  (state) => { state.isLoggedIn = true  },
-		setLoggedOut: (state) => { state.isLoggedIn = false },
+		setLoggedOut: (state) => { state.isLoggedIn = false; localStorage.removeItem('token') },
 	},
 
 	actions: {
