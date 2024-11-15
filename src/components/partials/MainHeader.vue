@@ -1,11 +1,20 @@
 <template>
-    <div class="main-header">
+    <div class="main-header" >
         <span><logo-svg /></span>
         <span>EVENT LAB</span>
+
+        <span class="role" v-if="user">
+            <prime-icon name="asterisk" />{{ user.role }}
+        </span>
 
         <span class="space" />
         <template v-if="isLoggedIn" >
             <click-button label="Settings" type="icon"    icon="cog"      @click=""/>
+
+            <span class="user" v-if="user">
+                <prime-icon name="user" />{{ user.name }}
+            </span>
+
             <click-button label="Logout"   type="primary" icon="sign-out" @click="logout()"/>
         </template>
         <template v-if="!isLoggedIn" >
@@ -20,15 +29,23 @@
     import { useStore } from 'vuex'
 
     const store = useStore()
+
     const isLoggedIn = computed(() => {
         return store.state.main.isLoggedIn
     })
 
+    const user = computed(() => {
+        return store.state.main.user
+    })
+
     function logout() {
         store.state.main.isLoggedIn = false
+        store.state.main.user = null
         localStorage.removeItem('token')
-        // tell profile/redis ?
     }
+
+
+
 </script>
 
 <style>
@@ -42,6 +59,18 @@
         z-index: 15;
         box-shadow: 0 0 8px #0000002e;
     }
+    .main-header .role .pi,
+    .main-header .user .pi {
+        font-size: .8em;
+        opacity: 0.4;
+        margin: 0 4px 0 8px;
+        font-weight: 100;
+    }
+    .main-header .role,
+    .main-header .user{
+        font-weight: 100;
+    }
+
     .main-header span {
         align-self: center;
         padding: 0 2px;
@@ -53,5 +82,8 @@
 
     .main-header span.space{
         margin-left: auto;
+    }
+    .main-header span.space ~ span{
+        margin-right: 8px;
     }
 </style>

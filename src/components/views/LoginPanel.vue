@@ -8,7 +8,7 @@
             <big-label  label="Sign In" />
             <text-input placeholder="Username" v-model="username" @inFocus="error=false"/>
             <text-input placeholder="Password" v-model="password" type="password" @inFocus="error=false"/>
-            <text-input placeholder="TFA" v-model="tfa" />
+            <!-- <text-input placeholder="TFA" v-model="tfa" /> -->
             <click-button label="Login" type="primary" @click="login()"/>
             <alert-bar    class="error" :label="msg" type="error" v-if="error"/>
             <click-button class="forgot" label="Forgot Password" type="link" />
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import User from "@/helpers/User.js"
 export default {
     data() {
         return {
@@ -58,9 +59,8 @@ export default {
             localStorage.setItem("token", json.token);
 
             this.$store.commit('main/setLoggedIn')
-
+            this.$store.commit('main/setUser', User.loadUser())
             // can I sign on into other domains with iframe?
-
 
             this.$emit('completed')
         },

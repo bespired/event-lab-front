@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import JWT from "@/helpers/JWT.js"
+import JWT  from "@/helpers/JWT.js"
+import User from "@/helpers/User.js"
 export default {
 
 	beforeMount() {
@@ -22,10 +23,13 @@ export default {
     methods: {
     	checkLogin() {
     		// based on JWT timeout ...
-    		if (JWT.notExpired())
+    		if (JWT.notExpired()) {
     			this.$store.commit('main/setLoggedIn')
-    		else
+    			this.$store.commit('main/setUser', User.loadUser())
+    		} else {
     			this.$store.commit('main/setLoggedOut')
+    			this.$store.commit('main/setUser', null)
+    		}
     	}
     }
 }
