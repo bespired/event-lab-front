@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import User from "@/helpers/User.js"
+
 export default {
     data() {
         return {
             username: 'joeri@bespired.nl',
-            password: 'tracker4now',
+            password: '',
             tfa: '123456',
             error: false,
             msg: 'Something went wrong',
@@ -59,7 +59,7 @@ export default {
             localStorage.setItem("token", json.token);
 
             this.$store.commit('main/setLoggedIn')
-            this.$store.commit('main/setUser', User.loadUser())
+            this.$store.dispatch('main/loadUser')
             // can I sign on into other domains with iframe?
 
             this.$emit('completed')

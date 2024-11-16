@@ -25,7 +25,7 @@ export default {
     		// based on JWT timeout ...
     		if (JWT.notExpired()) {
     			this.$store.commit('main/setLoggedIn')
-    			this.$store.commit('main/setUser', User.loadUser())
+    			this.$store.dispatch('main/loadUser')
     		} else {
     			this.$store.commit('main/setLoggedOut')
     			this.$store.commit('main/setUser', null)

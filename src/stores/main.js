@@ -1,3 +1,4 @@
+import User from "@/helpers/User.js"
 
 export default {
 
@@ -19,7 +20,9 @@ export default {
 	},
 
 	actions: {
-
+		loadUser(context) {
+			User.loadUser(context.state)
+		}
 	},
 
 }
