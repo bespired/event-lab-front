@@ -1,19 +1,32 @@
 <template>
-    <div class="menu-header">
-        <a href="dashboard"  :class="isActive('dashboard')" ><span /><prime-icon name="qrcode"    /> Dashboard  </a>
-        <a href="profile"    :class="isActive('profile')"   ><span /><prime-icon name="user"      /> Profiles   </a>
-        <a href="group"      :class="isActive('group')"     ><span /><prime-icon name="users"     /> Groups     </a>
-        <a href="automation" :class="isActive('automation')"><span /><prime-icon name="microchip" /> Automation </a>
-        <a href="mail"       :class="isActive('mail')"      ><span /><prime-icon name="send"      /> Mail       </a>
-        <a href="website"    :class="isActive('website')"   ><span /><prime-icon name="globe"     /> Website    </a>
+    <div class="menu-header" v-if="labmode">
+        <a href="dashboard"  :class="isActive('dashboard')" ><span />
+            <prime-icon name="qrcode"    /> Dashboard  </a>
+        <a href="profile"    :class="isActive('profile')"   ><span />
+            <prime-icon name="user"      /> Profiles   </a>
+        <a href="group"      :class="isActive('group')"     ><span />
+            <prime-icon name="users"     /> Groups     </a>
+        <a href="automation" :class="isActive('automation')"><span />
+            <prime-icon name="microchip" /> Automation </a>
+        <a href="mail"       :class="isActive('mail')"      ><span />
+            <prime-icon name="send"      /> Mail       </a>
+        <a href="website"    :class="isActive('website')"   ><span />
+            <prime-icon name="globe"     /> Website    </a>
     </div>
+    <div class="menu-header" v-if="docmode">
+        <crum-path />
+<!--         <link-button label="Home"          url="/" icon="home" /> /
+        <link-button label="documentation" url="/documentation" icon="book" /> /
+        <link-button label="lifecycle"     url="/documentation/lifecycle" icon="book" />
+ -->    </div>
 </template>
 
 <script>
 export default {
     data() {
         return {
-
+            labmode: document.location.pathname.substr(0,14) !== '/documentation',
+            docmode: document.location.pathname.substr(0,14) === '/documentation'
         }
     },
     methods: {
@@ -39,6 +52,7 @@ export default {
         font-weight: 300;
         font-size: 13px;
         justify-content: center;
+        align-items: center;
 
     }
     .menu-header a {
@@ -65,5 +79,9 @@ export default {
         border-radius: 4px;
         cursor: pointer;
         font-weight: 900;
+    }
+
+    .menu-header .link-button {
+        padding: 4px 4px;
     }
 </style>

@@ -9,7 +9,8 @@
 
         <span class="space" />
         <template v-if="isLoggedIn" >
-            <click-button label="Settings" type="icon"    icon="cog"      @click=""/>
+            <link-button label="Settings" type="header" icon="cog" />
+            <link-button label="Documentation" type="header" icon="book"  url="/documentation" />
 
             <span class="user" v-if="user">
                 <prime-icon name="user" />{{ user.name }}
@@ -58,6 +59,7 @@
         background-color: white;
         z-index: 15;
         box-shadow: 0 0 8px #0000002e;
+        align-items: center;
     }
     .main-header .role .pi,
     .main-header .user .pi {
@@ -85,5 +87,13 @@
     }
     .main-header span.space ~ span{
         margin-right: 8px;
+    }
+
+    .main-header .link-button {
+        font-size: 11px;
+        color: grey;
+    }
+    .main-header.link-button ~ .link-button {
+        margin-left: 8px;
     }
 </style>

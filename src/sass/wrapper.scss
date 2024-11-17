@@ -3,3 +3,10 @@
     flex-wrap: wrap;
     gap: 4px;
 }
+
+.scroll-content {
+    position: relative;
+    padding-top: 96px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
