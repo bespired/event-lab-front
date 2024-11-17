@@ -1,5 +1,5 @@
 <template>
-    <div class="menu-header" v-if="labmode">
+    <div class="menu-header center" v-if="labmode">
         <a href="dashboard"  :class="isActive('dashboard')" ><span />
             <prime-icon name="qrcode"    /> Dashboard  </a>
         <a href="profile"    :class="isActive('profile')"   ><span />
@@ -13,7 +13,7 @@
         <a href="website"    :class="isActive('website')"   ><span />
             <prime-icon name="globe"     /> Website    </a>
     </div>
-    <div class="menu-header" v-if="docmode">
+    <div class="menu-header lefter" v-if="docmode">
         <crum-path />
 <!--         <link-button label="Home"          url="/" icon="home" /> /
         <link-button label="documentation" url="/documentation" icon="book" /> /
@@ -51,10 +51,13 @@ export default {
         box-shadow: 0 0 8px #0000002e;
         font-weight: 300;
         font-size: 13px;
-        justify-content: center;
         align-items: center;
-
     }
+
+    .menu-header.center {
+        justify-content: center;
+    }
+
     .menu-header a {
         padding: 4px 16px;
         display: flex;

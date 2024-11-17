@@ -7,8 +7,11 @@ body {
     color: #25292a;
     box-sizing: border-box;
     padding: 0;
-
     & div { box-sizing: border-box; }
+}
+
+#app {
+  min-height: 100vh;
 }
 
 a {
