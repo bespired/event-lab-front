@@ -1,6 +1,6 @@
 <template>
     <div class="scroll-content">
-        <div>Technical Documentation</div>
+        <div>View Prototypes</div>
         <br/>
         <div class="index-space">
             <template v-for="link in links">
@@ -15,14 +15,12 @@ export default {
     data() {
         return {
             links: [
-                { label: 'Calculation Lifecycle', icon:'book', link: '/documentation/lifecycle', description: 'Rather technical'},
-                { label: 'Views Index',           icon:'align-justify', link: '/documentation/views', description: 'Visual stuff'}
+                { label: 'Dashboard Prototype', icon:'book', link: '/documentation/views/dashboard'}
             ]
         }
     },
 }
 </script>
-
 
 <style>
     .index-space {
@@ -30,4 +28,3 @@ export default {
         gap:8px;
     }
 </style>
-

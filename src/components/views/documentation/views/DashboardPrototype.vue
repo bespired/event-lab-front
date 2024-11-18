@@ -1,6 +1,6 @@
 <template>
     <div class="scroll-content">
-        Dashboard prototype <br>
+        Dashboard prototype <br><br>
         <dashboard-grid>
             <dash-panel :data="data[0]" />
             <dash-panel :data="data[1]" />
@@ -30,7 +30,7 @@ export default {
                     link: "#",
                     number: 7323,
                     bars: [3, 5, 3, 6, 8, 5],
-                    differ: 34,
+                    differ: -34,
                     note: "contacts",
                 }, {
                     theme: "aqua",

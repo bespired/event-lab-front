@@ -2,7 +2,7 @@
     <div class="dashboard-differ">
         <prime-icon :name="arrow" />
         <span >
-            {{ amount }}%
+            {{ absolute }}%
         </span>
         <span>
              {{ direction }} {{ label }}
@@ -28,7 +28,7 @@
     })
 
     const absolute = computed(() => {
-        return Math.absolute(props.amount)
+        return Math.abs(props.amount)
     })
 
 </script>
