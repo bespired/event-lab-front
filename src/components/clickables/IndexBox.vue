@@ -34,22 +34,26 @@
         border: 1px solid #34619b20;
         border-radius: 4px;
         line-height: 1.2;
-        transition: box-shadow .7s;
+        transition: box-shadow .5s, background-color .5s;
         color: #34619b;
     }
     a.index-box .pi{
-        font-size: 40px;
+        font-size: 32px;
     }
     a.index-box span:nth-child(1){
-        width: 60px;
+        width: 40px;
         padding: 10px;
         align-self: center;
         text-align: center;
+        background-color: aliceblue;
+        margin: auto 0 auto 10px;
+        border-radius: 8px;
+        transition: background-color .5s;
     }
     a.index-box span:nth-child(2){
         width: calc(100% - 80px);
         align-content: center;
-        transition: background-color .7s;
+        transition: background-color .5s;
     }
     a.index-box span:nth-child(2) div{
         width: 100%;
@@ -65,8 +69,10 @@
     }
     a.index-box:hover {
         box-shadow: #00377b73 0 0 8px;
-    }
-    a.index-box:hover span:nth-child(2){
         background-color: #34619b08;
     }
+    a.index-box:hover span:nth-child(1){
+        background-color: #f1f4f5;
+    }
+
 </style>
