@@ -16,6 +16,7 @@ export default {
         return {
             links: [
                 { label: 'Calculation Lifecycle', icon:'book', link: '/documentation/lifecycle', description: 'Rather technical'},
+                { label: 'Tracker Lifecycle',     icon:'book', link: '/documentation/tracker',   description: 'For on website'},
                 { label: 'Views Index',           icon:'align-justify', link: '/documentation/views', description: 'Visual stuff'}
             ]
         }
