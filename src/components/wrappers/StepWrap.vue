@@ -42,7 +42,7 @@ export default {
             }
         })
 
-        html = html.replaceAll('--', '<br \>')
+        html = html.replaceAll(' --', '<br \>')
 
         this.html = html
     },

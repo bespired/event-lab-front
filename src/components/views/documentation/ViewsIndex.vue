@@ -26,5 +26,6 @@ export default {
     .index-space {
         display: flex;
         gap:8px;
+        flex-wrap: wrap;
     }
 </style>
