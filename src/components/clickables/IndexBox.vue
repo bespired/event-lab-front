@@ -28,7 +28,7 @@
 
         min-height: 80px;
         width: 100%;
-        max-width: 320px;
+        max-width: calc(25% - 6px);
 
         background-color: white;
         border: 1px solid #34619b20;
