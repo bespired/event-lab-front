@@ -15,12 +15,11 @@ export default {
     data() {
         return {
             links: [
-                { label: 'Calculation Lifecycle', icon:'book', link: '/documentation/lifecycle',      description: 'Rather technical' },
-                { label: 'Tracker Lifecycle',     icon:'book', link: '/documentation/tracker',        description: 'For on website'   },
-                { label: 'Tracker tokens',        icon:'book', link: '/documentation/tokens',         description: 'token knows'      },
-                { label: 'Mailer pixel',          icon:'book', link: '/documentation/mail/pixel',     description: 'For mail open'    },
-                { label: 'Mail clicked',          icon:'book', link: '/documentation/mail/clicked',   description: 'For mail clicked' },
-                { label: 'Views Index',           icon:'align-justify', link: '/documentation/views', description: 'Visual stuff'     }
+                { label: 'Calculation Lifecycle', icon:'book', link: '/documentation/lifecycle',        description: 'Rather technical' },
+
+                { label: 'Mail Index',    icon:'align-justify', link: '/documentation/mail',    description: 'Mail stuff'     },
+                { label: 'Tracker Index', icon:'align-justify', link: '/documentation/tracker', description: 'Tracker stuff'  },
+                { label: 'Views Index',   icon:'align-justify', link: '/documentation/views',   description: 'Visual stuff'   },
             ]
         }
     },
