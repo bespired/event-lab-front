@@ -2,7 +2,7 @@
     <component
         :is="localComponent"
         :key="localKey"
-        v-if="loaded"
+         v-if="loaded"
     />
 </template>
 

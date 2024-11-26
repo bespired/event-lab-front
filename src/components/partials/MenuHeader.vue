@@ -39,12 +39,13 @@ export default {
 </script>
 
 <style>
+
     .menu-header {
         display: flex;
         user-select: none;
         position: fixed;
         left:0; right:0;
-        top:52px; height: 40px;
+        top:40px; height: 40px;
         padding: 0 14px;
         background-color: white;
         z-index: 9;

@@ -54,7 +54,7 @@
         display: flex;
         user-select: none;
         position: fixed;
-        top:0; left:0; right:0; height: 52px;
+        top:0; left:0; right:0; height: 40px;
         padding: 0 12px 0 10px;
         background-color: white;
         z-index: 15;
@@ -79,7 +79,7 @@
     }
 
     .main-header span svg{
-        max-height: 50px;
+        max-height: 46px;
     }
 
     .main-header span.space{

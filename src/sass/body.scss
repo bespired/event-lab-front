@@ -7,11 +7,18 @@ body {
     color: #25292a;
     box-sizing: border-box;
     padding: 0;
+    margin: 0;
     & div { box-sizing: border-box; }
+
+    --color-border: #e2e4e3;
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 a {
