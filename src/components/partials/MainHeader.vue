@@ -40,12 +40,11 @@
     })
 
     function logout() {
+        store.state.main.postmessage = '--logout'
         store.state.main.isLoggedIn = false
         store.state.main.user = null
         localStorage.removeItem('token')
     }
-
-
 
 </script>
 

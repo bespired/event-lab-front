@@ -1,15 +1,10 @@
 <template>
-
+	<web-socket />
 	<menu-header />
-
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
-
 	<black-out />
-
 	<main-header @login="visible=true"/>
-
 	<lazy-loader url="location"/>
-
 </template>
 
 <script>
@@ -33,8 +28,9 @@ export default {
     		if (JWT.notExpired()) {
     			this.$store.commit('main/setLoggedIn')
     			this.$store.dispatch('main/loadUser')
+    			this.$store.commit('main/postWsMessage', '--login')
     		} else {
-    			this.$store.commit('main/setLoggedOut')
+	   			this.$store.commit('main/setLoggedOut')
     			this.$store.commit('main/setUser', null)
     		}
     	}

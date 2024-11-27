@@ -11,12 +11,37 @@ export default {
 
 		rolecruds: null,    // load cruds based on users role
 
+		wsmessages: [],
+		postmessage: null,
+
+	},
+
+	getters: {
+		getWsMessages:  (state) => state.wsmessages,
+		getPostMessage: (state) => state.postmessage,
+		getUser:        (state) => state.user,
 	},
 
 	mutations: {
-		setLoggedIn:  (state)  => { state.isLoggedIn = true  },
-		setLoggedOut: (state)  => { state.isLoggedIn = false; localStorage.removeItem('token') },
+		setLoggedIn:  (state)  => {
+			state.isLoggedIn = true
+		},
+		setLoggedOut: (state)  => {
+			state.isLoggedIn = false;
+			localStorage.removeItem('token')
+		},
 		setUser: (state, user) => { state.user = user },
+
+		setWsMessage: (state, message) => {
+			switch(message.cmd) {
+				case 'msg': if (message.val) state.wsmessages.push(message)
+				case 'cmd':
+					if (message.val === 'login' ) state.wsmessages.push(message)
+					if (message.val === 'logout') state.wsmessages.push(message)
+					break;
+			}
+		},
+		postWsMessage: (state, message) => { state.postmessage = message },
 	},
 
 	actions: {

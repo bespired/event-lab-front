@@ -60,6 +60,8 @@ export default {
 
             this.$store.commit('main/setLoggedIn')
             this.$store.dispatch('main/loadUser')
+
+            this.$store.commit('main/postWsMessage', '--login')
             // can I sign on into other domains with iframe?
 
             this.$emit('completed')
