@@ -102,6 +102,6 @@ export default {
     }
     .content-wrapper .right-side .msg,
     .content-wrapper .right-side .cmd {
-        margin-bottom: 1em;
+        margin-bottom: .3em;
     }
 </style>
