@@ -20,7 +20,6 @@ const Views = {
 
     '/profile'  : 'ProfileView.vue',
     '/messages' : 'MessagesView.vue',
-    '/chat'     : 'ChatView.vue',
 
 }
 

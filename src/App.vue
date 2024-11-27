@@ -28,7 +28,7 @@ export default {
     		if (JWT.notExpired()) {
     			this.$store.commit('main/setLoggedIn')
     			this.$store.dispatch('main/loadUser')
-    			this.$store.commit('main/postWsMessage', '--login')
+    			// this.$store.commit('main/postWsMessage', '--login')
     		} else {
 	   			this.$store.commit('main/setLoggedOut')
     			this.$store.commit('main/setUser', null)

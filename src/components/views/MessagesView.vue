@@ -4,6 +4,8 @@
 
         </div>
         <div class="left-side">
+            <textarea class="full-area" v-model="message" />
+            <click-button type="primary" label="send" @click="send()" />
         </div>
         <div class="right-side">
             <template v-for="message in messages"  >
@@ -22,6 +24,7 @@ export default {
 
     data() {
         return {
+            message: ''
         }
     },
 
@@ -40,6 +43,12 @@ export default {
             if ((this.user) && (message.contact === this.user.contact)) classname += 'isMe'
 
             return classname
+        },
+
+        send() {
+            // strip --
+            this.$store.commit('main/postWsMessage', this.message)
+            this.message = ''
         }
     }
 }
@@ -73,8 +82,17 @@ export default {
         min-height: calc(100vh - 130px);
     }
 
+    .full-area {
+        max-width: calc(100% - 2px - 2em);
+        min-width: calc(100% - 2px - 2em);
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        padding: 1em;
+    }
+
     .content-wrapper .left-side {
         width: 320px;
+        padding: 20px;
     }
     .content-wrapper .right-side {
         width: calc(100% - 320px);
@@ -85,23 +103,41 @@ export default {
         max-height: calc(100vh - 200px);
     }
 
+    .content-wrapper .right-side > div:last-child {
+        scroll-snap-align: start;
+    }
+
     .content-wrapper .right-side .cmd {
         display: flex;
     }
 
+    .content-wrapper .right-side .cmd .name {
+        font-size: 16px;
+    }
+
     .content-wrapper .right-side .name {
-        color: #b2b2b2;
+        color: #3e833f;
+        font-size: 12px;
     }
 
     .content-wrapper .right-side .cmd .value {
         margin-left: 4px;
     }
 
-    .content-wrapper .right-side .isMe {
+    .content-wrapper .right-side {
         justify-content: flex-end;
+    }
+    .content-wrapper .right-side .isMe {
+        justify-content: flex-start;
     }
     .content-wrapper .right-side .msg,
     .content-wrapper .right-side .cmd {
         margin-bottom: .3em;
+        display: flex;
+    }
+
+    .content-wrapper .right-side .msg {
+        flex-wrap: wrap;
+        flex-direction: column;
     }
 </style>
