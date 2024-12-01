@@ -37,6 +37,21 @@
         transition: box-shadow .5s, background-color .5s;
         color: #34619b;
     }
+
+    @media only screen and (max-width: 1420px) {
+        .scroll-content {
+            padding-left:  20px;
+            padding-right: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 990px) {
+        a.index-box { max-width: calc(33% - 6px); }
+    }
+    @media only screen and (max-width: 800px) {
+        a.index-box { max-width: calc(50% - 6px); }
+    }
+
     a.index-box .pi{
         font-size: 32px;
     }

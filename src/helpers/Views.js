@@ -18,7 +18,7 @@ const Views = {
 
     '/documentation/views/dashboard': 'documentation/views/DashboardPrototype.vue',
 
-    '/profile'  : 'ProfileView.vue',
+    '/visitors' : 'VisitorView.vue',
     '/messages' : 'MessagesView.vue',
 
 }

@@ -1,9 +1,9 @@
-const User = {
+const Profile = {
 
-    loadUser(state) {
+    loadProfiles(state) {
 
         let object = {
-            // user is in JWT
+            // filter stuff, start page etc...
         }
 
         let headers = {
@@ -14,11 +14,11 @@ const User = {
         let http = document.location.protocol
         let host = document.location.hostname
 
-        let url = `${http}//${host}/--/profile/user/backend`
+        let url = `${http}//${host}/--/profile/0/profiles/list`
 
         // note the missing project Id ...
         // server will try to figure that out via hostname
-        // let url = "https://eventlab.com/--/profile/0/user/backend"
+        // let url = "https://eventlab.com/--/profile/0/profiles/list"
 
         fetch(url, {
             method: "POST",
@@ -27,20 +27,12 @@ const User = {
         })
         .then(response=>response.json())
         .then(json=> {
-            // console.log(' store data in store ', json)
-            state.user = json.message
-            if (json.hasOwnProperty('success')) state.user = json.message
+            if (json.hasOwnProperty('success')) state.profiles = json.message
         });
 
-    	// return {
-    	// 	name: "Joeri Kassenaar",
-    	// 	role: "bespired",
-    	// 	settings: {
-    	// 		colorscheme: "light"
-    	// 	}
-    	// }
+
     }
 
 }
 
-export default User;
+export default Profile;

@@ -1,4 +1,5 @@
-import User from "@/helpers/User.js"
+import User    from "@/helpers/User.js"
+import Profile from "@/helpers/Profile.js"
 
 export default {
 
@@ -14,12 +15,16 @@ export default {
 		wsmessages: [],
 		postmessage: null,
 
+		profiles: [],
+
 	},
 
 	getters: {
 		getWsMessages:  (state) => state.wsmessages,
 		getPostMessage: (state) => state.postmessage,
 		getUser:        (state) => state.user,
+
+		getProfiles:    (state) => state.profiles,
 	},
 
 	mutations: {
@@ -47,7 +52,12 @@ export default {
 	actions: {
 		loadUser(context) {
 			User.loadUser(context.state)
-		}
+		},
+
+		loadProfiles(context) {
+			Profile.loadProfiles(context.state)
+		},
+
 	},
 
 }
