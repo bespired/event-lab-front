@@ -1,15 +1,13 @@
 <template>
     <div class="profile-box" @click="goto()">
         <div class="leftbox" :class="device">
-            <prime-icon :name="device" />
-            <div class="colorbox" />
+            <img :src="`/svg/${device}.svg`" />
         </div>
         <div class="midbox">
             <div class="midrow">
                 <div class="inSegment">
                    {{ profile.pagecount }}
                 </div>
-
                 <div class="inSegment">
                     <div class="colorball" />
                     <div class="colorpill" />
@@ -50,7 +48,7 @@ export default {
     computed: {
         device() {
             // console.log(this.profile)
-            if (!this.profile.lastdevice) return 'align-justify'
+            if (!this.profile.lastdevice) return 'empty'
             return this.profile.lastdevice
         }
     },
@@ -76,6 +74,14 @@ export default {
     padding-right: 8px;
 }
 
+.profile-box img{
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 4px;
+}
+
 .profile-box:hover {
     background-color: aliceblue;
     cursor: pointer;
@@ -99,7 +105,6 @@ export default {
     mix-blend-mode: multiply;
 }
 
-
 .colorpill,
 .colorball {
     position: absolute;
@@ -118,7 +123,7 @@ export default {
 }
 
 
-.profile-box .leftbox.desktop .colorbox {
+/*.profile-box .leftbox.desktop .colorbox {
     top: 10px;
     left: 16px;
     width: 30px;
@@ -130,7 +135,7 @@ export default {
     left: 22px;
     width: 18px;
     height: 29px;
-}
+}*/
 
 .midrow {
     display: flex;
