@@ -3,12 +3,9 @@
         <div class="menu-sub-header">
         </div>
         <div class="left-side">
-            <!-- {{ profiles }} -->
-
             <template v-for="profile in profiles">
                 <profile-box :profile="profile" />
             </template>
-
         </div>
         <div class="right-side">
 
@@ -22,13 +19,6 @@ export default {
 
     mounted() {
         this.$store.dispatch('main/loadProfiles')
-    },
-
-    watch: {
-        $route(i, o) {
-            console.log('route-change', i, o)
-            this.$store.dispatch('main/loadProfiles')
-        }
     },
 
     computed: {

@@ -1,11 +1,15 @@
 <template>
-    <div class="profile-box">
+    <div class="profile-box" @click="goto()">
         <div class="leftbox" :class="device">
             <prime-icon :name="device" />
             <div class="colorbox" />
         </div>
         <div class="midbox">
             <div class="midrow">
+                <div class="inSegment">
+                   {{ profile.pagecount }}
+                </div>
+
                 <div class="inSegment">
                     <div class="colorball" />
                     <div class="colorpill" />
@@ -30,7 +34,7 @@
                 {{ profile.email }}
             </div>
             <div class="namebox visitor" v-if="profile.is_contact != 1">
-                visitor from {{ profile.country_name_1 }}
+                 visitor from {{ profile.country_name_1 }}
             </div>
 
         </div>
@@ -49,6 +53,12 @@ export default {
             if (!this.profile.lastdevice) return 'align-justify'
             return this.profile.lastdevice
         }
+    },
+
+    methods: {
+        goto() {
+            document.location = "https://japan.bespired.nl?utm_campaign=my-campaign"
+        }
     }
 
 }
@@ -57,12 +67,13 @@ export default {
 .profile-box {
     background-color: #f0f0f0;
     border-bottom: 1px solid var(--color-border);
-    min-height: 62px;
+    min-height: 54px;
     display: flex;
     flex-direction: row;
     font-size: 13px;
     user-select: none;
     transition: background-color 300ms;
+    padding-right: 8px;
 }
 
 .profile-box:hover {
@@ -142,10 +153,10 @@ export default {
 
 .profile-box .leftbox {
     position: relative;
-    min-width: 62px;
     display: flex;
     align-self: center;
     justify-content: center;
+    padding: 0 2px 0 6px;
 }
 
 .leftbox .pi {

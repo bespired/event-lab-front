@@ -1,6 +1,6 @@
 <template>
     <template v-for="link in links">
-        <link-button :label="link.label" :url="link.url" :icon="link.icon" />
+        <link-button :label="link.label" :link="link.url" :icon="link.icon" />
     </template>
 </template>
 

@@ -64,7 +64,11 @@ export default {
         align-self: center;
 
         background: white;
-        min-height: calc(100vh - 80px);
+        min-height: calc(100vh - 680px);
+        max-height: calc(100vh - 680px);
+
+        overflow: hidden;
+
         margin-top: 80px;
 
         box-shadow: 0 0 8px #0000002e;
@@ -93,9 +97,10 @@ export default {
     .content-wrapper .left-side {
         width: 320px;
         padding: 20px;
+        background-color: #f0f0f0;
     }
     .content-wrapper .right-side {
-        width: calc(100% - 320px);
+        width: calc(100% - 380px);
         border-left: 1px solid var(--color-border);
         background-color: #f8f8f8;
         padding: 1em;

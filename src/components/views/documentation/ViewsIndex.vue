@@ -4,7 +4,7 @@
         <br/>
         <div class="index-space">
             <template v-for="link in links">
-                <index-box :href="link.link" :icon="link.icon" :label="link.label" :description="link.description"/>
+                <index-box :link="link.link" :icon="link.icon" :label="link.label" :description="link.description"/>
             </template>
         </div>
     </div>

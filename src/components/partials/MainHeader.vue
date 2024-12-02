@@ -10,7 +10,7 @@
         <span class="space" />
         <template v-if="isLoggedIn" >
             <link-button label="Settings" type="header" icon="cog" />
-            <link-button label="Documentation" type="header" icon="book"  url="/documentation" />
+            <link-button label="Documentation" type="header" icon="book"  link="/documentation" />
 
             <span class="user" v-if="user">
                 <prime-icon name="user" />{{ user.name }}

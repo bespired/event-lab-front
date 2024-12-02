@@ -1,10 +1,10 @@
 <template>
 	<web-socket />
-	<menu-header />
+	<menu-header :key="updater" />
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
 	<black-out />
 	<main-header @login="visible=true"/>
-	<lazy-loader url="location"/>
+	<lazy-loader url="location" :key="updater" />
 </template>
 
 <script>
@@ -16,9 +16,21 @@ export default {
 		this.checkLogin()
 	},
 
+	mounted() {
+		// --
+		let root = document.querySelector(':root')
+		if (root.getAttribute('navigate-handler') === null) {
+			window.navigation.addEventListener("navigate", (event) => {
+				root.setAttribute('navigate-handler', true);
+				this.updater++
+			})
+		}
+	},
+
     data() {
         return {
-            visible: false
+            visible: false,
+            updater: 0,
         }
     },
 

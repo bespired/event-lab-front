@@ -1,5 +1,5 @@
 <template>
-    <a class="index-box" :href="link">
+    <a class="index-box" :href="link" @click.prevent.stop="handle">
         <span><prime-icon :name="icon" v-if="icon" /></span>
         <span>
             <div>{{ label }}</div>
@@ -8,15 +8,24 @@
     </a>
 </template>
 
-<script setup>
-    defineProps({
-        label: String,
-        description: String,
-        type:  String,
-        link:  String,
-        icon:  String,
+<script>
+export default {
+    props: {
+        link:   { type: String, default: null },
+        label:  { type: String, default: '#' },
+        type:   { type: String, default: null },
+        icon:   { type: String, default: null },
+        description: { type: String, default: null },
+    },
 
-    })
+    methods: {
+        handle(evt) {
+            console.log(this.link)
+            history.pushState({}, null, this.link);
+        }
+    }
+
+}
 </script>
 
 <style>

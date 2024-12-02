@@ -22,14 +22,16 @@
     .content-wrapper .right-side,
     .content-wrapper .left-side {
         min-height: calc(100vh - 130px);
+        max-height: calc(100vh - 130px);
         overflow: auto;
     }
 
     .content-wrapper .left-side {
-        width: 320px;
+        width: 380px;
+        background-color: #f0f0f0;
     }
     .content-wrapper .right-side {
-        width: calc(100% - 320px);
+        width: calc(100% - 380px);
         border-left: 1px solid var(--color-border);
         background-color: #f8f8f8;
     }

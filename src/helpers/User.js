@@ -27,7 +27,6 @@ const User = {
         })
         .then(response=>response.json())
         .then(json=> {
-            // console.log(' store data in store ', json)
             state.user = json.message
             if (json.hasOwnProperty('success')) state.user = json.message
         });
