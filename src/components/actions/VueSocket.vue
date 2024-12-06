@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'WebSocket',
+    name: 'VueSocket',
 
     data() {
         return {

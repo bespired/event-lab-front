@@ -20,7 +20,6 @@ export default {
 
     methods: {
         handle(evt) {
-            console.log(this.link)
             history.pushState({}, null, this.link);
         }
     }

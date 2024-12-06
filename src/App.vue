@@ -1,5 +1,5 @@
 <template>
-	<web-socket />
+	<vue-socket />
 	<menu-header :key="updater" />
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
 	<black-out />

@@ -1,0 +1,36 @@
+
+Viewport  Personalised ad  9998-language-suggest-sh22-new
+Viewport  Personalised ad  en-crumbpath-beef
+Viewport  Personalised ad  en-cat-nav-beef
+
+Customer Journey  SEE    https://domain/about-us
+Customer Journey  THINK  https://domain/about-us
+Customer Journey  DO     https://domain/about-us
+Customer Journey  CARE   https://domain/about-us
+
+button - hover -
+button - click - reset filter
+
+link   - hover - https://domain/about-us
+link   - click - https://domain/about-us
+
+page  - scroll -  25%
+page  - scroll -  50%
+page  - scroll -  75%
+page  - scroll - 100%
+
+page  - visit  -  32s
+
+page  - referrer - http
+
+page  - utms  -  http
+
+form  - submit
+
+doc   - download - selko-fytera-balance.pdf
+
+mail  - sent     - name of mail
+mail  - open     - name of mail
+mail  - click    - name of mail
+
+

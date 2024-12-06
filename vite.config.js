@@ -3,6 +3,7 @@ import { resolve as resolver } from 'path'
 import fs from 'fs';
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
+import { splitVendorChunkPlugin } from 'vite';
 // import basicSsl from '@vitejs/plugin-basic-ssl'
 
 
@@ -11,6 +12,7 @@ export default defineConfig({
     plugins: [
         vue(),
         // basicSsl(),
+        splitVendorChunkPlugin(),
         Components({}),
     ],
     resolve: {

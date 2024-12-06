@@ -1,0 +1,7 @@
+certbot certonly --manual --preferred-challenges http -d *.bespired.com -d bespired.com
+
+sudo cp /etc/letsencrypt/live/bespired.com/fullchain.pem ~/eventlab/event-lab-server/docker/apache/mycert.crt
+sudo cp /etc/letsencrypt/live/bespired.com/privkey.pem   ~/eventlab/event-lab-server/docker/apache/mycert.key
+
+sudo cp /etc/letsencrypt/live/bespired.com/fullchain.pem ~/eventlab/event-lab-server/docker/traefik/mycert.crt
+sudo cp /etc/letsencrypt/live/bespired.com/privkey.pem   ~/eventlab/event-lab-server/docker/traefik/mycert.key

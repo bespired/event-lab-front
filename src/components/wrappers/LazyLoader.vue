@@ -36,7 +36,8 @@ export default {
     computed: {
 
         loader() {
-            return () => import(/* @vite-ignore */`../views/${this.view}`)
+            return () => import( /* webpackChunkName: "view" */ `../views/${this.view}.vue`)
+            // return () => import(/* @vite-ignore */`../views/${this.view}`)
         },
 
         localKey() {
@@ -52,7 +53,7 @@ export default {
 
     methods: {
         fromLocation() {
-            if (!Views[document.location.pathname]) return "HelloWorld.vue"
+            if (!Views[document.location.pathname]) return "HelloWorld"
             return Views[document.location.pathname]
         }
     },
