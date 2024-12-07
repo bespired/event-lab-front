@@ -13,6 +13,7 @@ import User from "@/helpers/User.js"
 export default {
 
 	beforeMount() {
+		this.checkUrl()
 		this.checkLogin()
 	},
 
@@ -35,6 +36,17 @@ export default {
     },
 
     methods: {
+
+    	checkUrl() {
+    		// when on production the url should start with
+    		// https://domain/--/admin/
+    		let chunks = document.location.pathname.split('/')
+    		if (chunks.length > 3) return;
+
+    		let parts = document.location.href.split('/')
+    		document.location = `${parts[0]}//${parts[2]}/--/admin/`
+    	},
+
     	checkLogin() {
     		// based on JWT timeout ...
     		if (JWT.notExpired()) {

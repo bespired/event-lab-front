@@ -6,6 +6,9 @@ import Components from 'unplugin-vue-components/vite'
 import { splitVendorChunkPlugin } from 'vite';
 // import basicSsl from '@vitejs/plugin-basic-ssl'
 
+let basepath = process.env.NODE_ENV !== 'production' ? '' : '/--/admin/'
+console.log("Using basepath:", basepath);
+
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -15,6 +18,7 @@ export default defineConfig({
         splitVendorChunkPlugin(),
         Components({}),
     ],
+    base: basepath,
     resolve: {
         alias: {
             '@': resolver(__dirname, './src'),

@@ -57,7 +57,7 @@ export default {
 
     methods: {
         fromLocation() {
-            let path = document.location.pathname
+            let path = document.location.pathname.replace('/--/admin','')
             return ( Views[path] !== undefined) ? Views[path] :  "views/HelloWorld"
         },
 
