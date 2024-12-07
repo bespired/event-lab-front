@@ -1,25 +1,25 @@
 const Views = {
 
-    '/documentation':                 'documentation/DocumentIndex',
-    '/documentation/views':           'documentation/ViewsIndex',
-    '/documentation/tracker':         'documentation/TrackerIndex',
-    '/documentation/mail':            'documentation/MailIndex',
+    '/documentation':                 'docs/DocumentIndex',
+    '/documentation/views':           'docs/ViewsIndex',
+    '/documentation/tracker':         'docs/TrackerIndex',
+    '/documentation/mail':            'docs/MailIndex',
 
-    '/documentation/lifecycle':       'documentation/cycles/CalculationLifeCycle',
+    '/documentation/lifecycle':       'docs/CyclesCalculationLifeCycle',
 
-    '/documentation/tracker/cycle':   'documentation/tracker/TrackerLifeCycle',
-    '/documentation/tracker/tracker': 'documentation/tracker/TrackerLifeCycle',
-    '/documentation/tracker/events':  'documentation/tracker/TrackerEvents',
-    '/documentation/tracker/tokens':  'documentation/tracker/TrackerTokens',
-    '/documentation/tracker/utm':     'documentation/tracker/TrackerUtms',
+    '/documentation/tracker/cycle':   'docs/TrackerLifeCycle',
+    '/documentation/tracker/tracker': 'docs/TrackerLifeCycle',
+    '/documentation/tracker/events':  'docs/TrackerEvents',
+    '/documentation/tracker/tokens':  'docs/TrackerTokens',
+    '/documentation/tracker/utm':     'docs/TrackerUtms',
 
-    '/documentation/mail/pixel':      'documentation/cycles/MailPixel',
-    '/documentation/mail/clicked':    'documentation/cycles/MailClicked',
+    '/documentation/mail/pixel':      'docs/CyclesMailPixel',
+    '/documentation/mail/clicked':    'docs/CyclesMailClicked',
 
-    '/documentation/views/dashboard': 'documentation/views/DashboardPrototype',
+    '/documentation/views/dashboard': 'docs/ViewsDashboardPrototype',
 
-    '/visitors' : 'VisitorView',
-    '/messages' : 'MessagesView',
+    '/visitors' : 'views/VisitorView',
+    '/messages' : 'views/MessagesView',
 
 }
 

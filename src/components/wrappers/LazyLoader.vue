@@ -12,21 +12,17 @@ import Views from '@/helpers/Views.js'
 
 export default {
 
-    props: {
-        url: { type: String, default: null },
-    },
-
     mounted()
     {
-        this.localComponent = shallowRef(defineAsyncComponent({
-            loader: () => this.loader(),
-            delay: 500
-        }));
+        if (this.loader !== undefined) {
+            this.localComponent = shallowRef(defineAsyncComponent({
+                loader: () => this.loader(),
+                delay: 500
+            }));
+        }
     },
 
     data() {
-        // let views = Views
-
         return {
             localComponent: null,
             view: this.fromLocation()
@@ -34,12 +30,6 @@ export default {
     },
 
     computed: {
-
-        loader() {
-            return () => import( /* webpackChunkName: "view" */ `../views/${this.view}.vue`)
-            // return () => import(/* @vite-ignore */`../views/${this.view}`)
-        },
-
         localKey() {
             let t = new Date().getTime()
             return `load-${t}`
@@ -49,13 +39,28 @@ export default {
             return this.localComponent !== null
         },
 
+        loader() {
+            let splits = this.view.split('/')
+            let part = splits[0]
+            let view = splits[1]
+
+            switch(part) {
+            case 'views':
+                return () => import(`../views/${view}.vue`)
+            case 'docs':
+                return () => import(`../docs/${view}.vue`)
+            }
+
+        },
+
     },
 
     methods: {
         fromLocation() {
-            if (!Views[document.location.pathname]) return "HelloWorld"
-            return Views[document.location.pathname]
-        }
+            let path = document.location.pathname
+            return ( Views[path] !== undefined) ? Views[path] :  "views/HelloWorld"
+        },
+
     },
 
     unmounted() {

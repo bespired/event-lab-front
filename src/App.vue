@@ -4,7 +4,7 @@
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
 	<black-out />
 	<main-header @login="visible=true"/>
-	<lazy-loader url="location" :key="updater" />
+	<lazy-loader :key="updater" />
 </template>
 
 <script>

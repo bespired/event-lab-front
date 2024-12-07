@@ -43,7 +43,6 @@ export default {
 
         loader() {
             return () => import( /* webpackChunkName: "view" */ `../views/${this.view}.vue`)
-            // return () => import(/* @vite-ignore */`../views/${this.view}.vue`)
         },
 
         localKey() {
