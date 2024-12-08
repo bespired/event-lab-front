@@ -38,6 +38,8 @@ export default {
     methods: {
 
     	checkUrl() {
+    		if (import.meta.env.MODE === 'development') return
+
     		// when on production the url should start with
     		// https://domain/--/admin/
     		let chunks = document.location.pathname.split('/')

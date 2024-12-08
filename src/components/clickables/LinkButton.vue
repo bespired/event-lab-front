@@ -1,5 +1,5 @@
 <template>
-    <a :href="link" :class="[isActive, type]" class="link-button"
+    <a :href="reallink(link)" :class="[isActive, type]" class="link-button"
         @click.prevent.stop="handle">
         <prime-icon :name="icon" v-if="icon" />
         {{ label }}
@@ -26,8 +26,17 @@ export default {
 
     methods: {
         handle(evt) {
-            console.log(this.link)
-            history.pushState({}, null, this.link);
+            let href = evt.target.href
+            history.pushState({}, null, href);
+        },
+
+        reallink(link) {
+            if (import.meta.env.MODE === 'development') return link
+
+            let origin = document.location.origin
+            link = link.startsWith('/') ? link.substr(1) : link;
+            let url = `${origin}/--/admin/${link}`
+            return url
         }
     }
 

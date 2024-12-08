@@ -10,7 +10,9 @@ export default {
 
     computed: {
         links() {
-            let parts = location.pathname.split('/')
+            let path = document.location.pathname.replace('/--/admin', '')
+
+            let parts = path.split('/')
             let links = []
             let url = ''
             parts.forEach(part =>{
@@ -18,7 +20,6 @@ export default {
                 url = url.replace('//', '/')
                 links.push({ label: part, url: url, icon: 'angle-double-right'})
             })
-
 
             let l = links.length - 1
             links[l].icon = 'book'

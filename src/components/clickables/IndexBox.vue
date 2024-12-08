@@ -1,5 +1,5 @@
 <template>
-    <a class="index-box" :href="link" @click.prevent.stop="handle">
+    <a class="index-box" :href="reallink(link)" @click.prevent.stop="handle">
         <span><prime-icon :name="icon" v-if="icon" /></span>
         <span>
             <div>{{ label }}</div>
@@ -20,7 +20,15 @@ export default {
 
     methods: {
         handle(evt) {
-            history.pushState({}, null, this.link);
+            history.pushState({}, null, this.reallink(this.link));
+        },
+        reallink(link) {
+            if (import.meta.env.MODE === 'development') return link
+
+            let origin = document.location.origin
+            link = link.startsWith('/') ? link.substr(1) : link;
+            let url = `${origin}/--/admin/${link}`
+            return url
         }
     }
 

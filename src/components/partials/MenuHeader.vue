@@ -1,7 +1,7 @@
 <template>
     <div class="menu-header center" v-if="labmode">
         <template v-for="item in items">
-            <a :href="item.link" :class="isActive(item.link)"
+            <a :href="reallink(item.link)" :class="isActive(item.link)"
                 @click.prevent.stop="handle">
                 <prime-icon :name="item.icon" />
                 {{ item.label }}
@@ -16,9 +16,12 @@
 <script>
 export default {
     data() {
+
+        let path = document.location.pathname.replace('/--/admin', '')
+
         return {
-            labmode: document.location.pathname.substr(0,14) !== '/documentation',
-            docmode: document.location.pathname.substr(0,14) === '/documentation',
+            labmode: path.substr(0,14) !== '/documentation',
+            docmode: path.substr(0,14) === '/documentation',
 
             items: [
                 {link: "dashboard" , icon: "qrcode"    , label: "Dashboard"  },
@@ -40,7 +43,12 @@ export default {
         },
 
         handle(evt) {
-            history.pushState({}, null, evt.target.href);
+            let href = evt.target.href
+            history.pushState({}, null, href);
+        },
+
+        reallink(link) {
+            return link
         }
 
     }
