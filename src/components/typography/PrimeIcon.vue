@@ -1,5 +1,5 @@
 <template>
-    <i :class="`pi pi-${name}`" />
+    <i :class="`icon icon-${name}`" />
 </template>
 <script setup>
     const props = defineProps({
@@ -7,7 +7,7 @@
     })
 </script>
 <style>
-a .pi {
+a .icon {
     margin-left: 4px;
     margin-right: 4px;
     font-weight: 100;

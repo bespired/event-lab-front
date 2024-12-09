@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 /design
 /dist
+/src/iconfont/glyphs-mirror/*
+/src/iconfont/glyphs-archive/*
