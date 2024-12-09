@@ -107,16 +107,20 @@ echo "\nconvert ttf2woff\n";
 $cmd = 'npx ttf2woff src/iconfont/eventlab-iconfont.ttf src/iconfont/eventlab-iconfont.woff';
 shell_exec($cmd);
 
+echo "\nconvert ttf2eot\n";
+$cmd = 'npx ttf2eot src/iconfont/eventlab-iconfont.ttf src/iconfont/eventlab-iconfont.eot';
+shell_exec($cmd);
+
 $bust     = time();
 $csstpl   = [];
 $csstpl[] = '@font-face {';
 $csstpl[] = "  font-family: 'iconfont';";
-$csstpl[] = "  src: url('/font/eventlab-iconfont.eot?$bust');";
-$csstpl[] = "  src: url('/font/eventlab-iconfont.eot?$bust#iefix') format('embedded-opentype'),";
-$csstpl[] = "       url('/font/eventlab-iconfont.woff2?$bust') format('woff2'),";
-$csstpl[] = "       url('/font/eventlab-iconfont.woff?$bust') format('woff'),";
-$csstpl[] = "       url('/font/eventlab-iconfont.ttf?$bust') format('truetype'),";
-$csstpl[] = "       url('/font/eventlab-iconfont.svg?$bust#iconfont') format('svg');";
+$csstpl[] = "  src: url('/fonts/eventlab-iconfont.eot?$bust');";
+$csstpl[] = "  src: url('/fonts/eventlab-iconfont.eot?$bust#iefix') format('embedded-opentype'),";
+$csstpl[] = "  /*   url('/fonts/eventlab-iconfont.woff2?$bust') format('woff2'), */";
+$csstpl[] = "       url('/fonts/eventlab-iconfont.woff?$bust') format('woff'),";
+$csstpl[] = "       url('/fonts/eventlab-iconfont.ttf?$bust') format('truetype'),";
+$csstpl[] = "       url('/fonts/eventlab-iconfont.svg?$bust#iconfont') format('svg');";
 $csstpl[] = '  font-weight: normal;';
 $csstpl[] = '  font-style: normal;';
 $csstpl[] = '}';
@@ -157,7 +161,7 @@ file_put_contents('src/iconfont/iconfont.css', join("\n", $csstpl) . join("\n", 
 $cmd = 'cp src/iconfont/iconfont.css src/sass/iconfont.css';
 shell_exec($cmd);
 
-$cmd = 'cp src/iconfont/eventlab-iconfont.* public/font/.';
+$cmd = 'cp src/iconfont/eventlab-iconfont.* public/fonts/.';
 shell_exec($cmd);
 echo "\ndone\n\n";
 // -----

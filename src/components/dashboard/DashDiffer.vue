@@ -49,7 +49,7 @@
     .dashboard-label {
         font-size: 0.9em;
     }
-    .dashboard-differ .pi {
+    .dashboard-differ .icon {
         font-size: 0.5em;
     }
 </style>

@@ -10,17 +10,10 @@
     place-items: center;
     transition: background-color 0.25s;
 
-    & .pi {
+    & .icon {
         margin-right: 8px;
         font-size: .8em;
         opacity: 0.9;
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
-    &:active {
-        filter: brightness(0.9);
     }
 
     &.icon {
@@ -29,6 +22,13 @@
         &:hover {
             color: #3e74ba;
        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        filter: brightness(0.9);
     }
 
     &.primary {

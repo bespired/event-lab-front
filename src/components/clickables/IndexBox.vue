@@ -68,7 +68,7 @@ export default {
         a.index-box { max-width: calc(50% - 6px); }
     }
 
-    a.index-box .pi{
+    a.index-box .icon {
         font-size: 32px;
     }
     a.index-box span:nth-child(1){

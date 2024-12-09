@@ -60,8 +60,8 @@
         box-shadow: 0 0 8px #0000002e;
         align-items: center;
     }
-    .main-header .role .pi,
-    .main-header .user .pi {
+    .main-header .role .icon,
+    .main-header .user .icon {
         font-size: .8em;
         opacity: 0.4;
         margin: 0 4px 0 8px;
