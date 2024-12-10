@@ -1,6 +1,6 @@
 <?php
 
-$filename  = 'src/iconfont/primeicons.svg';
+$filename  = 'src/iconfont/story.svg';
 $glyphpath = 'src/iconfont/glyphs/';
 
 $svgfont = file_get_contents($filename);
@@ -8,13 +8,13 @@ $svgfont = file_get_contents($filename);
 $glyphs = explode('<glyph', $svgfont);
 unset($glyphs[0]);
 
- $temps = [];
+$temps = [];
 
 $temps[]  = '<?xml version="1.0" standalone="no"?>';
 $temps[]  = '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >';
 $temps[]  = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1024 1024">';
 $temps[]  = '    <!--  unicode: %s tags: %s -->';
-$temps[]  = '    <g transform="scale(1, -1) translate(0, -960)" >';
+$temps[]  = '    <g transform="scale(1.05, -1.05) translate(0, -834)" >';
 $temps[]  = '    <path fill="currentColor" d="%s" />';
 $temps[]  = '    </g>';
 $temps[]  = '</svg>';
