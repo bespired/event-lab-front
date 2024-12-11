@@ -62,16 +62,18 @@ foreach ($svgs as $svgfile) {
 
     // if mirror exists use mirror, else create one
 
-    if (!file_exists($mittern . $glyphname . '.svg')) {
-        $filecontent = file_get_contents($svgfile);
-        $mirror      = str_replace(['><path fill', '/></svg>'], ['><g transform="scale(1, -1) translate(0, -960)"><path fill', '/></g></svg>'], $filecontent);
+    // if (!file_exists($mittern . $glyphname . '.svg')) {
+    //     $filecontent = file_get_contents($svgfile);
+    //     $mirror      = str_replace(['><path fill', '/></svg>'], ['><g transform="scale(1, -1) translate(0, -960)"><path fill', '/></g></svg>'], $filecontent);
 
-        file_put_contents($mirrorname, $mirror);
-        $cmd = 'npx svgo -i ' . $mirrorname . ' -o ' . $fixedname;
-        shell_exec($cmd);
-    }
+    //     file_put_contents($mirrorname, $mirror);
+    //     $cmd = 'npx svgo -i ' . $mirrorname . ' -o ' . $fixedname;
+    //     shell_exec($cmd);
+    // }
 
-    $filecontent = file_get_contents($fixedname);
+    // $filecontent = file_get_contents($fixedname);
+
+    $filecontent = file_get_contents($svgfile);
 
     $re = '/d="([\s\S]*?)"/m';
     preg_match_all($re, $filecontent, $result, PREG_SET_ORDER, 0);
@@ -91,8 +93,8 @@ foreach ($svgs as $svgfile) {
     }
 }
 
-unlink($mirrorname);
-unlink($fixedname);
+// unlink($mirrorname);
+// unlink($fixedname);
 
 $template    = join("\n", $tpls);
 $filecontent = sprintf($template, join("\n", $glyphs));
@@ -130,7 +132,7 @@ $csstpl[] = '  font-family: "iconfont";';
 $csstpl[] = '  font-style: normal;';
 $csstpl[] = '  font-weight: normal;';
 $csstpl[] = '  speak: never;';
-$csstpl[] = '';
+$csstpl[] = '  transform: scaleX(1) scaleY(-1);';
 $csstpl[] = '  display: inline-block;';
 $csstpl[] = '  text-decoration: inherit;';
 $csstpl[] = '';
