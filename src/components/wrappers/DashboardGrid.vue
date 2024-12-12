@@ -4,10 +4,6 @@
     </div>
 </template>
 
-<script setup>
-
-</script>
-
 <style>
     .dashboard-grid {
         display: flex;
