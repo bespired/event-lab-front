@@ -34,9 +34,9 @@ export default {
             })
 
             let p
-            wires.forEach((wire, idx)=>{
+            wires.forEach((wire)=>{
                 p = Wires.inout(boxes, wire.from, wire.dest)
-                draws.push(`<line x1="${p.sx}" y1="${p.sy}" x2="${p.ex}" y2="${p.ey}" id="line-${idx}" class="line" />`)
+                draws.push(Wires.wire(p))
             })
 
             this.$store.commit('canvas/setWires', draws)
