@@ -14,7 +14,6 @@ console.log("Using basepath:", basepath);
 export default defineConfig({
     plugins: [
         vue(),
-        // basicSsl(),
         splitVendorChunkPlugin(),
         Components({}),
     ],

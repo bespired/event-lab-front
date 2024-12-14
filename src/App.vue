@@ -2,7 +2,7 @@
 	<vue-socket />
 	<menu-header :key="updater" />
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
-	<black-out />
+	<black-out   :key="updater" />
 	<main-header @login="visible=true"/>
 	<lazy-loader :key="updater" />
 </template>
@@ -21,14 +21,52 @@ export default {
 		// --
 		let root = document.querySelector(':root')
 		if (root.getAttribute('navigate-handler') === null) {
+			// prevent live reload from vue development
+			root.setAttribute('navigate-handler', true);
+
 			window.navigation.addEventListener("navigate", (event) => {
-				root.setAttribute('navigate-handler', true);
 				this.updater++
-			})
+			});
 		}
+
+		if (root.getAttribute('mouse-handler') === null) {
+			// prevent live reload from vue development
+			root.setAttribute('mouse-handler', true);
+
+			window.addEventListener("mousedown", (event) => {
+				window.pointer.down  = true;
+				window.pointer.downX = event.pageX;
+				window.pointer.downY = event.pageY;
+				window.pointer.moved = false;
+				this.$store.commit('canvas/ptrMoved');
+			});
+			window.addEventListener("mouseup", (event) => {
+				window.pointer.down = false;
+				window.pointer.upX  = event.pageX;
+				window.pointer.upY  = event.pageY;
+				this.$store.commit('canvas/ptrMoved');
+			});
+			window.addEventListener("mousemove", (event) => {
+				let diffX = event.pageX - window.pointer.downX
+				let diffY = event.pageY - window.pointer.downY
+
+				window.pointer.moved = (Math.abs(diffX) > 4) || (Math.abs(diffY) > 4)
+				window.pointer.pageX = event.pageX
+				window.pointer.pageY = event.pageY
+				window.pointer.distX = diffX
+				window.pointer.distY = diffY
+				this.$store.commit('canvas/ptrMoved')
+			});
+		}
+
 	},
 
     data() {
+    	window.pointer = {
+    		down: false, moved: false,
+    		pageX:0, pageY:0, downX:0, downY:0,
+    		distX:0, distY:0, upX:0, upY:0,
+    	}
         return {
             visible: false,
             updater: 0,

@@ -5,15 +5,21 @@ export default {
 	state: {
 
 		wires: [],
+		boxes: [],
+		pointermoved: 0,
 
 	},
 
 	getters: {
+		ptrMoved: (state) => state.pointermoved,
 		getWires: (state) => state.wires.join("\n"),
+		getBoxes: (state) => state.boxes,
 	},
 
 	mutations: {
-		setWires: (state, wires) => { state.wires = wires },
+		ptrMoved: (state, boxes) => { state.pointermoved++ },
+		setWires: (state, wires) => { state.wires = wires  },
+		setBoxes: (state, boxes) => { state.boxes = boxes  },
 	},
 
 	actions: {

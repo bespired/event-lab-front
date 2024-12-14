@@ -1,5 +1,9 @@
 <template>
-    <div class="connect-box" :style="styles" :id="node.handle" >
+    <div class="connect-box"
+        :style="styles"
+        :id="node.handle"
+        @click=""
+        >
         <div class="isSelected" />
         {{ node.label}}
     </div>
@@ -16,19 +20,3 @@ export default {
     }
 }
 </script>
-<style>
-    .connect-box {
-        position: absolute;
-        padding: 12px;
-        background-color: white;
-        border: 1px solid var(--color-border);
-        border-radius: 4px;
-        min-width: 192px;
-        min-height: 64px;
-        user-select: none;
-    }
-    .connect-box:hover {
-        border: 1px solid var(--color-hover);
-        cursor: grab;
-    }
-</style>

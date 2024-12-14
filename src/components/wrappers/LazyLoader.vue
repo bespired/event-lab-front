@@ -46,9 +46,9 @@ export default {
 
             switch(part) {
             case 'views':
-                return () => import(`../views/${view}.vue`)
+                return () => import(`../../views/${view}.vue`)
             case 'docs':
-                return () => import(`../docs/${view}.vue`)
+                return () => import(`../../docs/${view}.vue`)
             }
 
         },

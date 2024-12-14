@@ -42,7 +42,7 @@ export default {
     computed: {
 
         loader() {
-            return () => import( /* webpackChunkName: "view" */ `../views/${this.view}.vue`)
+            return () => import( /* webpackChunkName: "view" */ `../../views/${this.view}.vue`)
         },
 
         localKey() {

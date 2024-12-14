@@ -9,7 +9,10 @@
     const store = useStore()
 
     const active = computed(() => {
-        return store.state.main.isLoggedIn ? '' : 'active'
+        const regex = new RegExp(/.+\/documentation\/?.?/g);
+        const active = document.location.href.match(regex) ? '' : 'active'
+
+        return store.state.main.isLoggedIn ? '' : active
     })
 </script>
 
