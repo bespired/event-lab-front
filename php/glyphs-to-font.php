@@ -45,35 +45,32 @@ $glyphtpl = '<glyph unicode="&#x%s;" glyph-name="%s" d="%s" />';
 $icondef  = ".icon-%s:before { content: '\%s'; }";
 $cssicons = [];
 
+// { name: 'add-box', label: 'add-box' }
+$iconvue  = "  { name: '%s', label: '%s' }";
+$vueicons = [];
+
 $pattern = 'src/iconfont/glyphs/';
-$mittern = 'src/iconfont/glyphs-mirror/';
 $svgs    = glob($pattern . '*.svg');
 
 $base  = 59648;
 $count = 0;
 
 foreach ($svgs as $svgfile) {
-    $glyphname  = str_replace([$pattern, '.svg'], ['', ''], $svgfile);
-    $mirrorname = $pattern . 'x--mirror.svg';
-    $fixedname  = $mittern . $glyphname . '.svg';
+    $glyphname = str_replace([$pattern, '.svg'], ['', ''], $svgfile);
+    $fixedname = str_replace($glyphname, 'fixedfile', $svgfile);
 
     // sometimes the font is upside down...
     // I'm going to get `npx svgo` to fix that...
 
     // if mirror exists use mirror, else create one
 
-    // if (!file_exists($mittern . $glyphname . '.svg')) {
-    //     $filecontent = file_get_contents($svgfile);
-    //     $mirror      = str_replace(['><path fill', '/></svg>'], ['><g transform="scale(1, -1) translate(0, -960)"><path fill', '/></g></svg>'], $filecontent);
-
-    //     file_put_contents($mirrorname, $mirror);
-    //     $cmd = 'npx svgo -i ' . $mirrorname . ' -o ' . $fixedname;
-    //     shell_exec($cmd);
-    // }
-
-    // $filecontent = file_get_contents($fixedname);
-
     $filecontent = file_get_contents($svgfile);
+    $cmd         = 'npx svgo -i ' . $svgfile . ' -o ' . $fixedname;
+    shell_exec($cmd);
+
+    $filecontent = file_get_contents($fixedname);
+
+    // $filecontent = file_get_contents($svgfile);
 
     $re = '/d="([\s\S]*?)"/m';
     preg_match_all($re, $filecontent, $result, PREG_SET_ORDER, 0);
@@ -86,6 +83,9 @@ foreach ($svgs as $svgfile) {
 
         // .icon-archive:before { content: '\e802'; } /* '' */
         $cssicons[] = sprintf($icondef, $glyphname, $unicode);
+
+        // { name: 'add-box', label: 'add-box' }
+        $vueicons[] = sprintf($iconvue, $glyphname, $glyphname);
 
         echo "$glyphname added to font\n";
 
@@ -112,6 +112,14 @@ shell_exec($cmd);
 echo "\nconvert ttf2eot\n";
 $cmd = 'npx ttf2eot src/iconfont/eventlab-iconfont.ttf src/iconfont/eventlab-iconfont.eot';
 shell_exec($cmd);
+
+$vuetpl   = [];
+$vuetpl[] = 'const Icons = [';
+$vuetpl[] = join(",\n", $vueicons);
+$vuetpl[] = ']';
+$vuetpl[] = 'export default Icons;';
+
+file_put_contents('src/helpers/Icons.js', join("\n", $vuetpl));
 
 $bust     = time();
 $csstpl   = [];

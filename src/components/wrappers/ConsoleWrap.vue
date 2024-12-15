@@ -40,7 +40,7 @@ export default {
 .console{
     margin: 12px;
     box-shadow: 0 0 0 8px;
-    max-width: 80em;
+    max-width: 880px;
     font-size: 11px;
     border-radius: 12px;
     box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.3);

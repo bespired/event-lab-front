@@ -18,6 +18,8 @@ const Views = {
     '/documentation/boxed':           'docs/ExampleConnect',
 
     '/documentation/views/dashboard': 'docs/ViewsDashboardPrototype',
+    '/documentation/views/icons':     'docs/ViewIcons',
+
     '/documentation/development/frontend': 'docs/DevelopmentFrontend',
 
 
