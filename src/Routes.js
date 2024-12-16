@@ -1,7 +1,7 @@
-const Views = {
+const Routes = {
 
     '/documentation':                 'docs/DocumentIndex',
-    '/documentation/views':           'docs/ViewsIndex',
+    '/documentation/views':           'docs/RoutesIndex',
     '/documentation/tracker':         'docs/TrackerIndex',
     '/documentation/mail':            'docs/MailIndex',
 
@@ -17,7 +17,7 @@ const Views = {
     '/documentation/mail/clicked':    'docs/CyclesMailClicked',
     '/documentation/boxed':           'docs/ExampleConnect',
 
-    '/documentation/views/dashboard': 'docs/ViewsDashboardPrototype',
+    '/documentation/views/dashboard': 'docs/RoutesDashboardPrototype',
     '/documentation/views/icons':     'docs/ViewIcons',
 
     '/documentation/development/frontend': 'docs/DevelopmentFrontend',
@@ -28,4 +28,4 @@ const Views = {
 
 }
 
-export default Views;
+export default Routes;

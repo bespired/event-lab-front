@@ -1,6 +1,6 @@
 <template>
     <div class="scroll-content">
-        <div>Icons</div>
+        <big-label> Icons </big-label>
         <all-icons />
     </div>
 </template>

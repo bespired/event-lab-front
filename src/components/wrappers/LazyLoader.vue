@@ -8,7 +8,7 @@
 
 <script>
 import { shallowRef, defineAsyncComponent } from 'vue'
-import Views from '@/helpers/Views.js'
+import Routes from '@/Routes.js'
 
 export default {
 
@@ -58,7 +58,7 @@ export default {
     methods: {
         fromLocation() {
             let path = document.location.pathname.replace('/--/admin','')
-            return ( Views[path] !== undefined) ? Views[path] :  "views/HelloWorld"
+            return ( Routes[path] !== undefined) ? Routes[path] :  "views/HelloWorld"
         },
 
     },

@@ -26,12 +26,22 @@ export default {
     grid-template-columns: repeat(auto-fill, 180px);
     justify-content: space-between;
     grid-gap: 20px;
+    row-gap: 10px;
     font-size: 14px;
 }
 
+.icon-view .icon {
+    font-size: 2em;
+}
 .icon-panel {
     max-width: 180px;
     min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px 0 14px;
 }
 
     @media only screen and (max-width: 1440px) {

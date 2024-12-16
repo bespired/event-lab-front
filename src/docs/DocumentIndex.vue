@@ -16,10 +16,10 @@ export default {
     data() {
         return {
             links: [
-                { label: 'Calculation Lifecycle',  icon:'book', link: '/documentation/lifecycle', description: 'Rather technical' },
-                { label: 'Mail Index',    icon:'align-justify', link: '/documentation/mail',      description: 'Mail stuff'       },
-                { label: 'Tracker Index', icon:'align-justify', link: '/documentation/tracker',   description: 'Tracker stuff'    },
-                { label: 'Views Index',   icon:'align-justify', link: '/documentation/views',     description: 'Visual stuff'     },
+                { label: 'Calculation Lifecycle',  icon:'book',          link: '/documentation/lifecycle', description: 'Rather technical' },
+                { label: 'Mail Index',             icon:'align-justify', link: '/documentation/mail',      description: 'Mail stuff'       },
+                { label: 'Tracker Index',          icon:'align-justify', link: '/documentation/tracker',   description: 'Tracker stuff'    },
+                { label: 'Views Index',            icon:'align-justify', link: '/documentation/views',     description: 'Visual stuff'     },
             ]
         }
     },
