@@ -2,6 +2,8 @@ const Wires = {
 
     inout(boxes, from, dest) {
 
+        let idx = `line-${from}-${dest}`
+
         let scx = boxes[from].rx + (boxes[from].width  / 2)
         let scy = boxes[from].ry + (boxes[from].height / 2)
         let ecx = boxes[dest].rx + (boxes[dest].width  / 2)
@@ -16,7 +18,11 @@ const Wires = {
         let rltb = (Math.abs(dsx) > Math.abs(dsy)) ? rl : tb
         let r, l, t, b
 
-        let idx = `line-${from}-${dest}`
+        let xlap = boxes[from].rx < boxes[dest].rx + boxes[dest].width
+        let ylap = boxes[from].ry < boxes[dest].ry + boxes[dest].height
+
+        if (ylap && (rltb === 'T')) rltb = rl
+        if (xlap && (rltb === 'L')) rltb = tb
 
         switch (rltb){
             case 'R':
