@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'iconfont';
-  src: url('/fonts/eventlab-iconfont.eot?1734299297');
-  src: url('/fonts/eventlab-iconfont.eot?1734299297#iefix') format('embedded-opentype'),
-  /*   url('/fonts/eventlab-iconfont.woff2?1734299297') format('woff2'), */
-       url('/fonts/eventlab-iconfont.woff?1734299297') format('woff'),
-       url('/fonts/eventlab-iconfont.ttf?1734299297') format('truetype'),
-       url('/fonts/eventlab-iconfont.svg?1734299297#iconfont') format('svg');
+  src: url('/fonts/eventlab-iconfont.eot?1734364789');
+  src: url('/fonts/eventlab-iconfont.eot?1734364789#iefix') format('embedded-opentype'),
+  /*   url('/fonts/eventlab-iconfont.woff2?1734364789') format('woff2'), */
+       url('/fonts/eventlab-iconfont.woff?1734364789') format('woff'),
+       url('/fonts/eventlab-iconfont.ttf?1734364789') format('truetype'),
+       url('/fonts/eventlab-iconfont.svg?1734364789#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -184,4 +184,5 @@
 .icon-visibility-off:before { content: '\e98f'; }
 .icon-visibility-on:before { content: '\e990'; }
 .icon-wrench:before { content: '\e991'; }
-.icon-zoom-out:before { content: '\e992'; }
+.icon-zoom-in:before { content: '\e992'; }
+.icon-zoom-out:before { content: '\e993'; }

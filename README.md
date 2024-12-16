@@ -13,3 +13,10 @@ Edit your hostfile to point localhost to eventlab.com
 `127.0.0.1 eventlab.com` 
 
 Add a SSL certificate to your system to trust the https connections.
+
+
+`> php php/glyphs-to-font.php` to create new iconfont file out of glyphs   
+located in ~/event-lab/event-lab-front/src/iconfont/glyphs  
+view them here `https://eventlab.com:5180/documentation/views/icons`
+
+`> php php/build.php` to create a build in [event-lab-server](https://github.com/bespired/event-lab-server)

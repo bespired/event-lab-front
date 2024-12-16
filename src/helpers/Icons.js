@@ -145,6 +145,7 @@ const Icons = [
   { name: 'visibility-off', label: 'visibility-off' },
   { name: 'visibility-on', label: 'visibility-on' },
   { name: 'wrench', label: 'wrench' },
+  { name: 'zoom-in', label: 'zoom-in' },
   { name: 'zoom-out', label: 'zoom-out' }
 ]
 export default Icons;
