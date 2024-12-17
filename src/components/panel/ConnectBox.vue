@@ -5,7 +5,6 @@
             @mouseover ="hover(true)"
             @mouseleave="hover(false)"
         >
-
         <div class="isSelected" v-if="isSelected"/>
         {{ node.label }}
     </div>
@@ -16,8 +15,7 @@ export default {
         node: { type: Object, default: null },
     },
     computed: {
-        styles()   { return { left: `${this.node.x}px`, top: `${this.node.y}px` } },
-
+        styles()     { return { left: `${this.node.x}px`, top: `${this.node.y}px` } },
         selected()   { return this.$store.getters['canvas/selected']    },
         isSelected() { return this.selected.indexOf(this.node.handle) !== -1 },
     },

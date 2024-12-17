@@ -32,7 +32,7 @@ export default {
 
     beforeUnmount() {
         this.$store.commit('canvas/boxMove', false)
-        this.$store.commit('canvas/setBoxes', nodes)
+        this.$store.commit('canvas/setBoxes', null)
     },
 
     computed: {

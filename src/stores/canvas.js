@@ -18,7 +18,7 @@ export default {
 	getters: {
 		ptrMoved:   (state) => state.pointermoved,
 		wireRedraw: (state) => state.wireRedraw,
-		getWires:   (state) => state.wires.join("\n"),
+		getWires:   (state) => state.wires.join("\n") + state.bounding,
 		getBoxes:   (state) => state.boxes,
 		boxMove:    (state) => state.boxMove,
 		selected:   (state) => state.selected,
@@ -32,6 +32,7 @@ export default {
 			}
 		},
 		setWires:  (state, wires ) => { state.wires    = wires  },
+		setBound:  (state, rectb ) => { state.bounding = rectb  },
 		setBoxes:  (state, boxes ) => { state.boxes    = boxes  },
 		boxMove:   (state, setter) => { state.boxMove  = setter },
 		hoovered:  (state, setter) => { state.hoovered = setter },
@@ -48,13 +49,12 @@ export default {
 			if (idx > -1) { selected.splice(idx, 1); state.selected = selected }
 		},
 
-
 		clrOrigins: (state) => { state.origins = {} },
 	},
 
 	actions: {
 		setOrigins(context) {
-			context.state.canvas = document.querySelector('.connect-grid').getBoundingClientRect()
+			context.state.canvas = document.getElementById('connect')
 			context.state.origins = {}
 			context.state.widths  = {}
 			context.state.boxes.forEach( box => {
@@ -68,7 +68,7 @@ export default {
 			let wid = context.state.widths
 			let sel = context.state.selected
 			let hov = context.state.hoovered
-			let can = context.state.canvas
+			let can = context.state.canvas.getBoundingClientRect()
 
 			context.state.boxes.forEach( box => {
 				let select = sel.indexOf(box.handle) !== -1

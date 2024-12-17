@@ -64,10 +64,26 @@ const Wires = {
         return `<path d='${m} ${c}' class='line'/>`
 
         // return `<line x1="${points.sx}" y1="${points.sy}" x2="${points.ex}" y2="${points.ey}" id="${points.idx}" class="line" />`
+    },
+
+    bounding(points, base) {
+
+        if (!base) return
+
+        let sx = points.sx - base.x
+        let sy = points.sy - base.y
+        let xw = (points.ex - points.sx)
+        let yh = (points.ey - points.sy)
+
+        if (xw < 0) { sx += xw; xw =- xw }
+        if (yh < 0) { sy += yh; yh =- yh }
+
+        return `<rect x="${sx}" y="${sy}" width="${xw}" height="${yh}" rx="5" class="bounding" />`
+
     }
 
-        // draws.push("<path d='M 410 227 C 535 227, 535 147, 660 147' class='line' />")
-        // draws.push(`<line x1="${p.sx}" y1="${p.sy}" x2="${p.ex}" y2="${p.ey}" id="line-${idx}" class="line" />`)
+    // draws.push("<path d='M 410 227 C 535 227, 535 147, 660 147' class='line' />")
+    // draws.push(`<line x1="${p.sx}" y1="${p.sy}" x2="${p.ex}" y2="${p.ey}" id="line-${idx}" class="line" />`)
 
 }
 
