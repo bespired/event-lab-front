@@ -35,6 +35,8 @@ export default {
 
 			window.addEventListener("mousedown", (event) => {
 				window.pointer.down  = true;
+				window.pointer.tick  = true;
+				window.pointer.done  = false;
 				window.pointer.downX = event.pageX;
 				window.pointer.downY = event.pageY;
 				window.pointer.moved = false;
@@ -42,6 +44,8 @@ export default {
 			});
 			window.addEventListener("mouseup", (event) => {
 				window.pointer.down = false;
+				window.pointer.tick = false;
+				window.pointer.done = true;
 				window.pointer.upX  = event.pageX;
 				window.pointer.upY  = event.pageY;
 				this.$store.commit('canvas/ptrMoved');
@@ -51,6 +55,9 @@ export default {
 				let diffY = event.pageY - window.pointer.downY
 
 				window.pointer.moved = (Math.abs(diffX) > 4) || (Math.abs(diffY) > 4)
+				window.pointer.tick  = false;
+				window.pointer.done  = false;
+
 				window.pointer.pageX = event.pageX
 				window.pointer.pageY = event.pageY
 				window.pointer.distX = diffX
@@ -64,6 +71,7 @@ export default {
     data() {
     	window.pointer = {
     		down: false, moved: false,
+    		tick: false, done: false,
     		pageX:0, pageY:0, downX:0, downY:0,
     		distX:0, distY:0, upX:0, upY:0,
     	}

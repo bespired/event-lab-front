@@ -1,9 +1,10 @@
 <template>
-    <div class="connect-grid" >
+    <div class="connect-grid">
         <svg id="connect" v-html="wires" />
         <slot />
         <div class="debug-info" :data-update="update">
             <div>{{ pointer.down  }}: {{ pointer.moved }}</div>
+            <div>{{ pointer.tick  }}: {{ pointer.done  }}</div>
             <div>{{ pointer.pageX }}, {{ pointer.pageY }}</div>
             <div>{{ pointer.distX }}, {{ pointer.distY }}</div>
         </div>
@@ -12,10 +13,29 @@
 
 <script>
 export default {
+
+    watch: {
+        update(i, o) {
+            // move boxes modes ...
+            if (this.boxmove) {
+                if  (this.pointer.tick) this.$store.dispatch('canvas/setOrigins')
+                if  (this.pointer.done) this.$store.commit('canvas/clrOrigins')
+
+                if ((this.pointer.down) && (this.pointer.moved)) {
+                    this.$store.dispatch('canvas/moveBoxes')
+                }
+                if ((this.pointer.done) && (!this.pointer.moved)) {
+                    this.$store.dispatch('canvas/selectBoxes')
+                }
+            }
+        }
+    },
+
     computed:{
+        pointer() { return window.pointer },
         wires()   { return this.$store.getters['canvas/getWires'] },
+        boxmove() { return this.$store.getters['canvas/boxMove']  },
         update()  { return this.$store.getters['canvas/ptrMoved'] },
-        pointer() { return window.pointer }
     },
 }
 </script>
