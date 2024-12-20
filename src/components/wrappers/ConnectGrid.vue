@@ -7,6 +7,7 @@
             <div>{{ pointer.tick  }}: {{ pointer.done  }}</div>
             <div>{{ pointer.pageX }}, {{ pointer.pageY }}</div>
             <div>{{ pointer.distX }}, {{ pointer.distY }}</div>
+            <div>{{ grabModus }}</div>
         </div>
     </div>
 </template>
@@ -24,29 +25,49 @@ export default {
                 if  (this.pointer.tick) this.$store.dispatch('canvas/setOrigins')
                 if  (this.pointer.done) this.$store.commit('canvas/clrOrigins')
 
-                // maybe only on hover?
                 if ((this.pointer.down) && (this.pointer.moved)) {
-                    this.$store.dispatch('canvas/moveBoxes')
+
+                    let grabModus = this.grabModus
+
+                    if (!grabModus) {
+                        grabModus = (this.hoovered) ? 'moveBoxes' : 'selectBound'
+                        this.$store.commit('canvas/grabModus', grabModus)
+                    }
+
+                    if ('moveBoxes' === this.grabModus) {
+                        this.$store.dispatch('canvas/moveBoxes')
+                    }
+
                 }
-                // maybe only on hover?
+                // maybe only on not hover select some bounding-box mode?
                 if ((this.pointer.done) && (!this.pointer.moved)) {
-                    this.$store.dispatch('canvas/selectBoxes')
+                    if (this.hoovered) {
+                        this.$store.dispatch('canvas/selectBoxes')
+                    } else {
+                        this.$store.commit('canvas/clrBoxSelect')
+                    }
                 }
 
-                // maybe only on not hover select some bounding-box mode?
-                // if ((this.pointer.done) && (!this.pointer.moved)) {
-                //     this.$store.dispatch('canvas/selectBoxes')
-                // }
+                // reset the grabModus, if it was selectBound, select boxes
+                if ((this.pointer.done) && (this.grabModus)) {
+                    if ('selectBound' === this.grabModus) {
+                        this.$store.dispatch('canvas/selectBoundBoxes')
+                    }
+                    this.$store.commit('canvas/grabModus', null)
+                }
 
             }
         }
     },
 
     computed:{
-        pointer() { return window.pointer },
-        wires()   { return this.$store.getters['canvas/getWires']  },
-        boxmove() { return this.$store.getters['canvas/boxMove']   },
-        update()  { return this.$store.getters['canvas/ptrMoved']  },
+        pointer()   { return window.pointer },
+        wires()     { return this.$store.getters['canvas/getWires']  },
+        boxmove()   { return this.$store.getters['canvas/boxMove']   },
+        update()    { return this.$store.getters['canvas/ptrMoved']  },
+        grabModus() { return this.$store.getters['canvas/grabModus'] },
+        hoovered()  { return this.$store.getters['canvas/hoovered']  },
+
     },
 }
 </script>

@@ -14,6 +14,10 @@ export default {
         this.drawWiresInCanvas()
     },
 
+    computed:{
+        grabModus() { return this.$store.getters['canvas/grabModus'] },
+    },
+
     methods: {
         drawWiresInCanvas() {
             // the canvas is a svg...
@@ -39,9 +43,11 @@ export default {
                 draws.push(Wires.wire(p))
             })
 
-            let ptr   = window.pointer
-            let bound = { sx: ptr.downX, sy: ptr.downY, ex: ptr.pageX, ey: ptr.pageY }
-            draws.push(Wires.bounding(bound, base))
+            if (this.grabModus === 'selectBound') {
+                let ptr   = window.pointer
+                let bound = { sx: ptr.downX, sy: ptr.downY, ex: ptr.pageX, ey: ptr.pageY }
+                draws.push(Wires.bounding(bound, base))
+            }
 
             this.$store.commit('canvas/setWires', draws)
 
