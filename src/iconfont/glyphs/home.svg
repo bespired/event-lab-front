@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <path d="M833.667,960L190.333,960C155.908,960 128,932.092 128,897.667L128,446.143L38.716,513.972L-0,463.011L512,74.041L1024,463.011L985.284,513.972L896,446.143L896,897.667C896,932.092 868.092,960 833.667,960ZM512,154.416L192,397.521L192,896L384,896L384,575.997C384,540.652 412.653,512 447.998,512L471,511.999L553,511.999L576.002,512C611.347,512 640,540.652 640,575.997L640,896L832,896L832,397.521L512,154.416ZM448,896L576,896L576,575.999L448,575.999L448,896Z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" svgo-fixed viewBox="0 0 1024 1024"><path d="M834 960H190c-34 0-62-28-62-62V446l-89 68-39-51L512 74l512 389-39 51-89-68v452c0 34-28 62-62 62M512 154 192 398v498h192V576c0-35 29-64 64-64h128c35 0 64 29 64 64v320h192V398zm-64 742h128V576H448z"/></svg>

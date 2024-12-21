@@ -1,5 +1,5 @@
 <template>
-    <div class="menu-header center" v-if="labmode">
+    <div class="menu-header center">
         <template v-for="item in items">
             <a :href="reallink(item.link)" :class="isActive(item.link)"
                 @click.prevent.stop="handle">
@@ -8,21 +8,12 @@
             </a>
         </template>
     </div>
-    <div class="menu-header lefter" v-if="docmode">
-        <crum-path />
-    </div>
 </template>
 
 <script>
 export default {
     data() {
-
-        let path = document.location.pathname.replace('/--/admin', '')
-
         return {
-            labmode: path.substr(0,14) !== '/documentation',
-            docmode: path.substr(0,14) === '/documentation',
-
             items: [
                 {link: "dashboard" , icon: "qrcode"    , label: "Dashboard"  },
                 {link: "visitors"  , icon: "user"      , label: "Visitors"   },

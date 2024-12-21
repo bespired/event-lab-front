@@ -5,6 +5,8 @@
 // https://github.com/fontello/
 // https://primevue.org/icons/
 
+$name = "eventlabicons";
+
 $tpls   = [];
 $tpls[] = '<?xml version="1.0" standalone="no"?>';
 $tpls[] = '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >';
@@ -13,7 +15,7 @@ $tpls[] = '<metadata>';
 $tpls[] = '<json>';
 $tpls[] = '<![CDATA[';
 $tpls[] = '{';
-$tpls[] = '	 "fontFamily": "eventlabicons",';
+$tpls[] = '	 "fontFamily": "' . $name . '",';
 $tpls[] = '	 "majorVersion": 1,';
 $tpls[] = '	 "minorVersion": 0,';
 $tpls[] = '	 "copyright": "Bespired",';
@@ -22,17 +24,17 @@ $tpls[] = '	 "description": "Icon Library for eventlab UI Libraries",';
 $tpls[] = '	 "license": "MIT",';
 $tpls[] = '	 "licenseURL": "https://opensource.org/licenses/MIT",';
 $tpls[] = '	 "version": "Version 1.0",';
-$tpls[] = '	 "fontId": "eventlabicons",';
-$tpls[] = '	 "psName": "eventlabicons",';
+$tpls[] = '	 "fontId": "' . $name . '",';
+$tpls[] = '	 "psName": "' . $name . '",';
 $tpls[] = '	 "subFamily": "Regular",';
-$tpls[] = '	 "fullName": "eventlabicons"';
+$tpls[] = '	 "fullName": "' . $name . '"';
 $tpls[] = '}';
 $tpls[] = ']]>';
 $tpls[] = '</json>';
 $tpls[] = '</metadata>';
 $tpls[] = '<defs>';
 $tpls[] = '<font id="eventlabicons" horiz-adv-x="1024">';
-$tpls[] = '<font-face units-per-em="1024" ascent="960" descent="-64" />';
+$tpls[] = '<font-face font-family="' . $name . '" font-weight="400" font-stretch="normal" units-per-em="1024" ascent="960" descent="-64" />';
 $tpls[] = '<missing-glyph horiz-adv-x="1024" />';
 $tpls[] = '<glyph unicode="&#x20;" horiz-adv-x="512" d="" />';
 $tpls[] = '%s';
@@ -52,6 +54,12 @@ $vueicons = [];
 $pattern = 'src/iconfont/glyphs/';
 $svgs    = glob($pattern . '*.svg');
 
+$fipath = "</svg>";
+$repath = "\n<meta svgo-fixed=\"true\" /></svg>";
+
+$resvg = '/<svg ([\s\S]*?)>/m';
+$subst = "<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" svgo-fixed viewBox=\"0 0 1024 1024\">";
+
 $base  = 59648;
 $count = 0;
 
@@ -60,17 +68,21 @@ foreach ($svgs as $svgfile) {
     $fixedname = str_replace($glyphname, 'fixedfile', $svgfile);
 
     // sometimes the font is upside down...
-    // I'm going to get `npx svgo` to fix that...
-
-    // if mirror exists use mirror, else create one
+    // Do i going to get `npx svgo` to fix that?...
 
     $filecontent = file_get_contents($svgfile);
-    $cmd         = 'npx svgo -i ' . $svgfile . ' -o ' . $fixedname;
-    shell_exec($cmd);
 
-    $filecontent = file_get_contents($fixedname);
+    if (! (strpos($filecontent, 'svgo-fixed') > 0)) {
 
-    // $filecontent = file_get_contents($svgfile);
+        $cmd = 'npx svgo -p 0 -i ' . $svgfile . ' -o ' . $svgfile;
+        shell_exec($cmd);
+
+        $filecontent = file_get_contents($svgfile);
+        $filecontent = preg_replace($resvg, $subst, $filecontent);
+
+        file_put_contents($svgfile, $filecontent);
+
+    }
 
     $re = '/d="([\s\S]*?)"/m';
     preg_match_all($re, $filecontent, $result, PREG_SET_ORDER, 0);

@@ -12,6 +12,10 @@
     font-size: 13px;
     align-items: center;
 
+    .separator {
+        padding: 0 8px;
+    }
+
     &.center {
         justify-content: center;
     }
@@ -44,7 +48,8 @@
     }
 
     .link-button {
-        padding: 4px 4px;
+        cursor: pointer;
+        // padding: 4px 4px;
     }
 
 }

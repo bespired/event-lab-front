@@ -85,7 +85,6 @@ export default {
 			})
 		},
 		selectBoundBoxes(context) {
-			let org = context.state.origins
 			let sel = context.state.selected
 			let mnx = Math.min(window.pointer.downX, window.pointer.upX)
 			let mxx = Math.max(window.pointer.downX, window.pointer.upX)
@@ -106,7 +105,6 @@ export default {
 			context.state.wireRedraw++
 		},
 		selectBoxes(context) {
-			let org = context.state.origins
 			let sel = context.state.selected
 			let ptx = window.pointer.downX
 			let pty = window.pointer.downY

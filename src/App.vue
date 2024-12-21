@@ -1,9 +1,9 @@
 <template>
 	<vue-socket />
-	<menu-header :key="updater" />
+	<header-menu :key="updater" />
 	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
 	<black-out   :key="updater" />
-	<main-header @login="visible=true"/>
+	<header-main @login="visible=true"/>
 	<lazy-loader :key="updater" />
 </template>
 
