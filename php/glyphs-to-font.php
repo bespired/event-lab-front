@@ -47,6 +47,9 @@ $glyphtpl = '<glyph unicode="&#x%s;" glyph-name="%s" d="%s" />';
 $icondef  = ".icon-%s:before { content: '\%s'; }";
 $cssicons = [];
 
+$duodef = ".icon-%s:before { content: '\%s'; color: var(--color-icon); transform: translateX(.5em) scaleY(-1); }\n";
+$duodef .= ".icon-%s:after  { content: '\%s'; transform: translate(-.5em, 2px) scaleY(-1); } \n";
+
 // { name: 'add-box', label: 'add-box' }
 $iconvue  = "  { name: '%s', label: '%s' }";
 $vueicons = [];
@@ -93,11 +96,23 @@ foreach ($svgs as $svgfile) {
 
         $glyphs[] = sprintf($glyphtpl, $unicode, $glyphname, $path);
 
-        // .icon-archive:before { content: '\e802'; } /* '' */
-        $cssicons[] = sprintf($icondef, $glyphname, $unicode);
+        $duo = str_ends_with($glyphname, 'duo') || str_ends_with($glyphname, 'duo-fill');
 
+        if (! $duo) {
+            // .icon-archive:before { content: '\e802'; } /* '' */
+            $cssicons[] = sprintf($icondef, $glyphname, $unicode);
+            $vueicons[] = sprintf($iconvue, $glyphname, $glyphname);
+
+        } else {
+            if (str_ends_with($glyphname, 'duo-fill')) {
+                $usename    = str_replace('duo-fill', '-color', $glyphname);
+                $prevcode   = dechex($base + $count + 1);
+                $cssicons[] = sprintf($duodef, $usename, $unicode, $usename, $prevcode);
+                $vueicons[] = sprintf($iconvue, $usename, $usename);
+            }
+
+        }
         // { name: 'add-box', label: 'add-box' }
-        $vueicons[] = sprintf($iconvue, $glyphname, $glyphname);
 
         echo "$glyphname added to font\n";
 
@@ -147,6 +162,7 @@ $csstpl[] = '  font-weight: normal;';
 $csstpl[] = '  font-style: normal;';
 $csstpl[] = '}';
 $csstpl[] = '';
+$csstpl[] = '[class^="icon-"]:after, [class*=" icon-"]:after,';
 $csstpl[] = '[class^="icon-"]:before, [class*=" icon-"]:before {';
 $csstpl[] = '  font-family: "iconfont";';
 $csstpl[] = '  font-style: normal;';
@@ -187,3 +203,9 @@ $cmd = 'cp src/iconfont/eventlab-iconfont.* public/fonts/.';
 shell_exec($cmd);
 echo "\ndone\n\n";
 // -----
+{
+
+}
+{
+
+}
