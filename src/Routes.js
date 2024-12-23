@@ -23,8 +23,11 @@ const Routes = {
     '/documentation/development/frontend': 'docs/DevelopmentFrontend',
 
 
-    '/visitors' : 'views/VisitorView',
-    '/messages' : 'views/MessagesView',
+    '/visitors': 'views/VisitorView',
+    '/messages': 'views/MessagesView',
+
+    '/website/assets':   'views/AssetView',
+    '/website/assets/*': 'views/AssetView',
 
 }
 

@@ -91,6 +91,8 @@
     .main-header .link-button {
         font-size: 11px;
         color: grey;
+        text-wrap: nowrap;
+        white-space: nowrap;
     }
     .main-header.link-button ~ .link-button {
         margin-left: 8px;

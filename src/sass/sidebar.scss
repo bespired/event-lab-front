@@ -13,3 +13,49 @@
 .top-bar.visible {
     top: 40px;
 }
+
+.menu-side {
+    margin-top: 1em;
+    font-weight: 300;
+    font-size: 13px;
+
+    .separator {
+        padding: 0 8px;
+    }
+
+    a {
+        padding: 4px 12px 4px 6px;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        transition: background-color 200ms;
+        color: inherit;
+        border-radius: 2px;
+        margin: 0 1px;
+
+        &:hover {
+            background-color: #92b53640;
+            color: #213547;
+            // border-radius: 4px;
+            cursor: pointer;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+    }
+
+    a.focus:hover,
+    a.focus {
+        background-color: #92b536;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+
+    .link-button {
+        cursor: pointer;
+        text-wrap: nowrap;
+        white-space: nowrap;
+    }
+
+}

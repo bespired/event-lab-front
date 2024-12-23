@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper">
+    <div class="content-wrapper visitor">
         <div class="menu-sub-header">
         </div>
         <div class="left-side">

@@ -1,11 +1,12 @@
 <template>
-    <div class="menu-header center">
+    <div class="menu-header">
         <template v-for="item in items">
-            <a :href="reallink(item.link)" :class="isActive(item.link)"
-                @click.prevent.stop="handle">
-                <prime-icon :name="item.icon" />
-                {{ item.label }}
-            </a>
+            <link-button
+                :link  = "item.link"
+                :label = "item.label"
+                :icon  = "item.icon"
+                :active= "item.link"
+            />
         </template>
     </div>
 </template>
@@ -23,26 +24,9 @@ export default {
                 {link: "mail"      , icon: "send"      , label: "Mail"       },
                 {link: "website"   , icon: "globe"     , label: "Website"    },
             ]
-
         }
     },
 
-    methods: {
-        isActive(when) {
-            const regex = new RegExp(`${when}`);
-            return document.location.href.match(regex) ? 'focus' : ''
-        },
-
-        handle(evt) {
-            let href = evt.target.href
-            history.pushState({}, null, href);
-        },
-
-        reallink(link) {
-            return link
-        }
-
-    }
 }
 </script>
 

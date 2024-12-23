@@ -1,11 +1,13 @@
 <template>
-    <a :href="reallink(link)" :class="[isActive, type]" class="link-button"
+    <a :href="reallink(link)"
+        ref="link"
+        :class="[isActive, type]"
+        class="link-button"
         @click.prevent.stop="handle">
         <prime-icon :name="icon" v-if="icon" />
         {{ label }}
     </a>
 </template>
-
 
 <script>
 export default {
@@ -15,6 +17,12 @@ export default {
         type:   { type: String, default: null },
         icon:   { type: String, default: null },
         active: { type: String, default: null },
+    },
+
+    mounted() {
+        let bb = getComputedStyle(this.$refs.link)
+        this.$refs.link.style['max-width']= bb.width
+        this.$refs.link.style['width']= bb.width
     },
 
     computed: {

@@ -3,12 +3,13 @@
         <link-button label="Home" link="/" icon="home" />
         <link-button label="Website" link="/website" icon="globe" :class="isActive('/website')" />
         <span class="separator">|</span>
-        <template v-for="item in items">
-            <a :href="reallink(item.link)" :class="isActive(item.link)"
-                @click.prevent.stop="handle">
-                <prime-icon :name="item.icon" />
-                {{ item.label }}
-            </a>
+        <template v-for="item in menus">
+            <link-button
+                :link  = "item.link"
+                :label = "item.label"
+                :icon  = "item.icon"
+                :active= "item.link"
+            />
         </template>
     </div>
 </template>
@@ -17,19 +18,24 @@
 export default {
     data() {
         return {
-            items: [
+            menus: [
                 { link: "/website/urls" ,     icon: "compass",    label: "Urls"     },
                 { link: "/website/pages" ,    icon: "pages",      label: "Pages"    },
                 { link: "/website/assets" ,   icon: "imagesmode", label: "Assets"   },
                 { link: "/website/settings" , icon: "cog",        label: "Settings" },
-            ]
+            ],
         }
+    },
+
+    computed: {
+        current() {
+            return document.location.pathname.replace('/--/admin', '')
+        },
     },
 
     methods: {
         isActive(when) {
-            let path  = document.location.pathname.replace('/--/admin', '')
-            return when === path ? 'focus' : ''
+            return when === this.current.substr(0, when.length) ? 'focus' : ''
         },
 
         handle(evt) {

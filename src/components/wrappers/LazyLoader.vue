@@ -58,7 +58,18 @@ export default {
     methods: {
         fromLocation() {
             let path = document.location.pathname.replace('/--/admin','')
-            return ( Routes[path] !== undefined) ? Routes[path] :  "views/HelloWorld"
+            if (Routes[path] !== undefined) return Routes[path]
+
+            let astrix = Object.keys(Routes).filter(r => r.indexOf('*') > 0)
+            let view   = "views/HelloWorld"
+
+            astrix.forEach(a => {
+                // '/website/assets/logos'.match('/website/assets/*')
+                let hit = path.match(a)
+                if (hit) view = Routes[astrix]
+            })
+
+            return view
         },
 
     },
