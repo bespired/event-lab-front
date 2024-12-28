@@ -57,11 +57,9 @@ $vueicons = [];
 $pattern = 'src/iconfont/glyphs/';
 $svgs    = glob($pattern . '*.svg');
 
-$fipath = "</svg>";
-$repath = "\n<meta svgo-fixed=\"true\" /></svg>";
-
 $resvg = '/<svg ([\s\S]*?)>/m';
-$subst = "<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" svgo-fixed viewBox=\"0 0 1024 1024\">";
+$subst = "<svg xmlns=\"http://www.w3.org/2000/svg\" ";
+$subst .= "svgo-fixed=\"true\" xml:space=\"preserve\" viewBox=\"0 0 1024 1024\">";
 
 $base  = 59648;
 $count = 0;
@@ -87,7 +85,7 @@ foreach ($svgs as $svgfile) {
 
     }
 
-    $re = '/d="([\s\S]*?)"/m';
+    $re = '/ d="([\s\S]*?)"/m';
     preg_match_all($re, $filecontent, $result, PREG_SET_ORDER, 0);
 
     if ($result) {
@@ -172,8 +170,8 @@ $csstpl[] = '  transform: scaleX(1) scaleY(-1);';
 $csstpl[] = '  display: inline-block;';
 $csstpl[] = '  text-decoration: inherit;';
 $csstpl[] = '';
-$csstpl[] = '/*';
 $csstpl[] = '  width: 1em;';
+$csstpl[] = '/*';
 $csstpl[] = '  margin-left: .2em;';
 $csstpl[] = '  margin-right: .2em;';
 $csstpl[] = '  text-align: center;';
@@ -203,9 +201,3 @@ $cmd = 'cp src/iconfont/eventlab-iconfont.* public/fonts/.';
 shell_exec($cmd);
 echo "\ndone\n\n";
 // -----
-{
-
-}
-{
-
-}

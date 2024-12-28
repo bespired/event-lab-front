@@ -16,15 +16,19 @@ export default {
     data() {
         return {
             menus: [
-                { link: "/website/assets/images" ,        icon: "image",    label: "website images" },
-                { link: "/website/assets/icons" ,         icon: "bullseye", label: "website icons" },
-                { link: "/website/assets/logos" ,         icon: "crown",    label: "website logos" },
-                { link: "/website/assets/pictures" ,      icon: "stacks",   label: "page images" },
-                { link: "/website/assets/links" ,         icon: "link",     label: "link images" },
-                { link: "/website/assets/illustrations",  icon: "stacks",   label: "article illustrations" },
-                { link: "/website/assets/email-images" ,  icon: "envelope", label: "email illustrations" },
-                { link: "/website/assets/documents" ,     icon: "download", label: "download documents" },
-                { link: "/website/assets/private" ,       icon: "lock",     label: "private files" },
+                { link: "/website/assets/illustrations",  icon: "stacks",    label: "article illustrations" },
+                { link: "/website/assets/pictures" ,      icon: "image",     label: "page images" },
+                { link: "/website/assets/email-images" ,  icon: "envelope",  label: "email illustrations" },
+                { link: "/website/assets/images" ,        icon: "image",     label: "website images" },
+                { link: "/website/assets/icons" ,         icon: "bullseye",  label: "website icons" },
+                { link: "/website/assets/logos" ,         icon: "crown",     label: "website logos" },
+                { link: "/website/assets/links" ,         icon: "link",      label: "link images" },
+                { link: "/website/assets/documents" ,     icon: "download",  label: "download documents" },
+                { link: "/website/assets/font-file" ,     icon: "font",      label: "font files" },
+                { link: "/website/assets/font-glyph" ,    icon: "font-icon", label: "font svgs" },
+                { link: "/website/assets/script-file" ,   icon: "code-js",   label: "script files" },
+                { link: "/website/assets/style-file" ,    icon: "code-css",  label: "style files" },
+                { link: "/website/assets/private" ,       icon: "lock",      label: "private files" },
             ],
         }
     },

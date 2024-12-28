@@ -1,5 +1,6 @@
 import User    from "@/helpers/User.js"
 import Profile from "@/helpers/Profile.js"
+import Assets  from "@/helpers/Assets.js"
 
 export default {
 
@@ -7,16 +8,20 @@ export default {
 
 	state: {
 
-		isLoggedIn: false,  // is the user logged in based on localStorage
-		user: null,         // load user data from server
+		isLoggedIn: false,  // is the user logged in based on localStorage.
+		user: null,         // load user data from server.
 
-		rolecruds: null,    // load cruds based on users role
+		topPanel: 'LoginPanel',
+		topVisible: false,
+
+		rolecruds: null,    // load cruds based on users role.
 
 		wsmessages: [],
 		postmessage: null,
 
 		profiles: [],
-
+		assets: {},
+		assetType: null,    // current asset type.
 	},
 
 	getters: {
@@ -24,7 +29,11 @@ export default {
 		getPostMessage: (state) => state.postmessage,
 		getUser:        (state) => state.user,
 
+		getTopPanel:    (state) => state.topPanel,
+		topVisible:     (state) => state.topVisible,
+
 		getProfiles:    (state) => state.profiles,
+		getAssets:      (state) => state.assets,
 	},
 
 	mutations: {
@@ -36,6 +45,9 @@ export default {
 			localStorage.removeItem('token')
 		},
 		setUser: (state, user) => { state.user = user },
+
+		setTopPanel:  (state, panel)  => { state.topPanel   = panel },
+		topVisible:   (state, bool)   => { state.topVisible = bool },
 
 		setWsMessage: (state, message) => {
 			switch(message.cmd) {
@@ -56,6 +68,12 @@ export default {
 
 		loadProfiles(context) {
 			Profile.loadProfiles(context.state)
+		},
+
+		loadAssets(context, assetType) {
+			context.state.assetType = assetType.replace(/[s]$/gm, '');
+			console.log('type -> ', context.state.assetType)
+			// Assets.loadAssets(context.state)
 		},
 
 	},

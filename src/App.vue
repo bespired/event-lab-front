@@ -1,9 +1,9 @@
 <template>
 	<vue-socket />
 	<header-menu :key="updater" />
-	<top-bar-loader view="LoginPanel" :visible="visible" @completed="visible=false"/>
+	<top-bar-loader :view="topPanel" :visible="topVisible" @completed="topVisible=false"/>
 	<black-out   :key="updater" />
-	<header-main @login="visible=true"/>
+	<header-main @login="showLogin()"/>
 	<lazy-loader :key="updater" />
 </template>
 
@@ -81,7 +81,25 @@ export default {
         }
     },
 
+
+    computed: {
+
+    	topVisible: {
+    		get()  { return this.$store.getters['main/topVisible'] },
+    		set(b) { this.$store.commit('main/topVisible', b) }
+    	},
+
+    	topPanel() {
+    		return this.$store.getters['main/getTopPanel']
+    	},
+    },
+
     methods: {
+
+    	showLogin() {
+    		this.$store.commit('main/setTopPanel', 'LoginPanel')
+			this.topVisible = true
+    	},
 
     	checkUrl() {
     		if (import.meta.env.MODE === 'development') return
