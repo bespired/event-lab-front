@@ -33,7 +33,8 @@ export default {
 		topVisible:     (state) => state.topVisible,
 
 		getProfiles:    (state) => state.profiles,
-		getAssets:      (state) => state.assets,
+		getAllAssets:   (state) => state.assets,
+		getAssets:      (state) => state.assets[state.assetType],
 	},
 
 	mutations: {
@@ -71,9 +72,9 @@ export default {
 		},
 
 		loadAssets(context, assetType) {
-			context.state.assetType = assetType.replace(/[s]$/gm, '');
+			context.state.assetType = assetType
 			console.log('type -> ', context.state.assetType)
-			// Assets.loadAssets(context.state)
+			Assets.loadAssets(context.state)
 		},
 
 	},

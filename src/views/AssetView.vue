@@ -6,8 +6,9 @@
         </div>
         <div class="right-side">
             <click-button type="primary" label="upload" @click="uploader()" />
+            {{ this.assetType }}
             <template v-for="asset in assets" :key="asset.id">
-                <!-- <asset-box :asset="asset" /> -->
+                <asset-box :asset="asset" />
             </template>
         </div>
     </div>
@@ -18,16 +19,21 @@
 export default {
 
     mounted() {
-        const path  = document.location.pathname.replace('/--/admin', '')
-        const parts = path.split('/')
-        const type  = parts.at(-1);
-        this.$store.dispatch('main/loadAssets', type)
+        this.$store.dispatch('main/loadAssets', this.assetType)
     },
 
     computed: {
         assets() {
             return this.$store.getters['main/getAssets']
-        }
+        },
+
+        assetType() {
+            let path  = document.location.pathname.replace('/--/admin', '')
+            let parts = path.split('/')
+            let type  = parts.at(-1);
+            return type
+        },
+
     },
 
     methods: {
