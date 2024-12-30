@@ -66,7 +66,7 @@ export default {
             astrix.forEach(a => {
                 // '/website/assets/logos'.match('/website/assets/*')
                 let hit = path.match(a)
-                if (hit) view = Routes[astrix]
+                if (hit !== null) view = Routes[a]
             })
 
             return view

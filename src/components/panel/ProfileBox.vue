@@ -1,5 +1,7 @@
 <template>
-    <div class="profile-box" @click="goto()">
+    <div class="profile-box"
+        :class="isSelected()"
+        @click="show()">
         <div class="leftbox" :class="device">
             <img :src="`/svg/${device}.svg`" />
         </div>
@@ -9,14 +11,10 @@
                    {{ profile.pagecount }}
                 </div>
                 <div class="inSegment">
-                    <div class="colorball" />
-                    <div class="colorpill" />
-                    <prime-icon name="user" />
+                    <prime-icon name="user--color" />
                 </div>
                 <div class="inSegment">
-                    <div class="colorball" />
-                    <div class="colorpill" />
-                    <prime-icon name="user" />
+                    <prime-icon name="user--color" />
                 </div>
             </div>
         </div>
@@ -50,12 +48,22 @@ export default {
             // console.log(this.profile)
             if (!this.profile.lastdevice) return 'empty'
             return this.profile.lastdevice
-        }
+        },
     },
 
     methods: {
-        goto() {
-            document.location = "https://japan.bespired.nl?utm_campaign=my-campaign"
+        isSelected() {
+            let current = document.location.pathname.split('/').at(-1)
+            return  current === this.profile.handle ? 'isSelected' : ''
+        },
+
+        show() {
+            let development = (import.meta.env.MODE === 'development')
+            let origin = document.location.origin
+            let root = development ? '' : `${origin}/--/admin/`
+            let href = `${root}/visitors/${this.profile.handle}`
+
+            history.pushState({}, null, href);
         }
     }
 
@@ -74,6 +82,13 @@ export default {
     padding-right: 8px;
 }
 
+.profile-box.isSelected {
+    min-height: 53px;
+    background-color: #d0dcb4;
+    border-bottom: 1px solid #92b536;
+    box-shadow: inset 0 1px #92b536;
+}
+
 .profile-box img{
     width: 32px;
     height: 32px;
@@ -84,6 +99,11 @@ export default {
 
 .profile-box:hover {
     background-color: aliceblue;
+    cursor: pointer;
+}
+
+.profile-box.isSelected:hover {
+    background-color: #d0dcb4;
     cursor: pointer;
 }
 

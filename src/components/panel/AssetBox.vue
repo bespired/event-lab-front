@@ -1,6 +1,12 @@
 <template>
     <div class="asset-box">
-        {{ asset.label }}
+        <div class="thumb" :class="asset.mimetype" >
+            <img loading="lazy" class="img" :src="url" />
+        </div>
+        <div class="info">
+            <div class="lbl">{{ asset.label }}</div>
+            <div class="url">{{ asset.url }}</div>
+        </div>
     </div>
 </template>
 <script>
@@ -8,5 +14,13 @@ export default {
     props: {
         asset: { type: Object, default: null },
     },
+
+    computed: {
+        url() {
+            let host  = location.hostname
+            let proto = location.protocol
+            return `${proto}//${host}${this.asset.url}`
+        }
+    }
 }
 </script>

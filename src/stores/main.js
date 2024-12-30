@@ -22,6 +22,9 @@ export default {
 		profiles: [],
 		assets: {},
 		assetType: null,    // current asset type.
+
+		phandle: null,      // profile focus view
+		profile: null,      // profile focus view
 	},
 
 	getters: {
@@ -35,6 +38,9 @@ export default {
 		getProfiles:    (state) => state.profiles,
 		getAllAssets:   (state) => state.assets,
 		getAssets:      (state) => state.assets[state.assetType],
+
+		getOneProfile:  (state) => state.profile,
+
 	},
 
 	mutations: {
@@ -71,9 +77,14 @@ export default {
 			Profile.loadProfiles(context.state)
 		},
 
+		// single profile
+		loadProfile(context, handle) {
+			context.state.phandle = handle
+			Profile.loadProfile(context.state)
+		},
+
 		loadAssets(context, assetType) {
 			context.state.assetType = assetType
-			console.log('type -> ', context.state.assetType)
 			Assets.loadAssets(context.state)
 		},
 

@@ -23,7 +23,9 @@ const Routes = {
     '/documentation/development/frontend': 'docs/DevelopmentFrontend',
 
 
-    '/visitors': 'views/VisitorView',
+    '/visitors':   'views/VisitorView',
+    '/visitors/*': 'views/VisitorView',
+
     '/messages': 'views/MessagesView',
 
     '/website/assets':   'views/AssetView',

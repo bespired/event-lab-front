@@ -1,20 +1,20 @@
 <template>
     <div class="content-wrapper assets">
-
         <div class="left-side">
             <menu-for-assets />
         </div>
         <div class="right-side">
-            <click-button type="primary" label="upload" @click="uploader()" />
-            {{ this.assetType }}
+            <div class="filter-header"></div>
+
+            <div class="grid-view" :class="assetType">
             <template v-for="asset in assets" :key="asset.id">
                 <asset-box :asset="asset" />
             </template>
+            </div>
         </div>
     </div>
 </template>
-<style>
-</style>
+
 <script>
 export default {
 

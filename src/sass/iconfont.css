@@ -187,7 +187,7 @@
 .icon-upload-file:before { content: '\e991'; }
 .icon-upload:before { content: '\e992'; }
 .icon-user--color:before { content: '\e993'; color: var(--color-icon); transform: translateX(.5em) scaleY(-1); }
-.icon-user--color:after  { content: '\e994'; transform: translate(-.5em, 2px) scaleY(-1); } 
+.icon-user--color:after  { content: '\e994'; transform: translate(-.5em, 1px) scaleY(-1); }
 
 .icon-user-plus:before { content: '\e995'; }
 .icon-user:before { content: '\e996'; }

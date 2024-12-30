@@ -1,14 +1,12 @@
 <template>
     <div class="content-wrapper visitor">
-        <div class="menu-sub-header">
-        </div>
         <div class="left-side">
             <template v-for="profile in profiles">
                 <profile-box :profile="profile" />
             </template>
         </div>
         <div class="right-side">
-
+            <one-profile :handle="handle" v-if="handle" />
         </div>
     </div>
 </template>
@@ -24,6 +22,13 @@ export default {
     computed: {
         profiles() {
             return this.$store.getters['main/getProfiles']
+        },
+
+        handle() {
+            let current = document.location.pathname.split('/').at(-1)
+            if (current === 'visitors' ) return null
+
+            return current
         }
     }
 
