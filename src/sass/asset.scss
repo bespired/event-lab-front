@@ -27,7 +27,11 @@
     }
 }
 
-.grid-view.font-glyph img {
+.grid-view.font-file .asset-box img {
+    max-height: 128px;
+}
+
+.grid-view.font-glyph  img {
     height: 32px;
 }
 

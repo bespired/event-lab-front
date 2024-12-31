@@ -19,7 +19,8 @@ export default {
         url() {
             let host  = location.hostname
             let proto = location.protocol
-            return `${proto}//${host}${this.asset.url}`
+            let where = this.asset.cmne === 'ASFF' ? this.asset.url.replace('woff', 'png') : this.asset.url
+            return `${proto}//${host}${where}`
         }
     }
 }
