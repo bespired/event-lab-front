@@ -62,3 +62,32 @@
     }
 
 }
+
+.filter-header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    // box-shadow: 0 0 8px #0000002e;
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+    align-items: center;
+
+    .top-right {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 0;
+        border-left: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            border-radius: 4px;
+            background-color: #d0dcb4;
+            cursor: pointer;
+        }
+    }
+
+}

@@ -1,7 +1,7 @@
 const Routes = {
 
     '/documentation':                 'docs/DocumentIndex',
-    '/documentation/views':           'docs/RoutesIndex',
+    '/documentation/views':           'docs/ViewsIndex',
     '/documentation/tracker':         'docs/TrackerIndex',
     '/documentation/mail':            'docs/MailIndex',
 
@@ -17,7 +17,7 @@ const Routes = {
     '/documentation/mail/clicked':    'docs/CyclesMailClicked',
     '/documentation/boxed':           'docs/ExampleConnect',
 
-    '/documentation/views/dashboard': 'docs/RoutesDashboardPrototype',
+    '/documentation/views/dashboard': 'docs/ViewsDashboardPrototype',
     '/documentation/views/icons':     'docs/ViewIcons',
 
     '/documentation/development/frontend': 'docs/DevelopmentFrontend',
@@ -30,6 +30,11 @@ const Routes = {
 
     '/website/assets':   'views/AssetView',
     '/website/assets/*': 'views/AssetView',
+
+    '/website/forms':   'views/FormView',
+    '/website/forms/*': 'views/FormView',
+
+
 
 }
 

@@ -8,9 +8,9 @@ export default {
 		origins:  {},    // save origins when moving starts
 		widths:   {},    // widths of all boxes
 		selected: [],    // handles of objects that are selected
-		hoovered: null,  // an object is hovered
-		canvas:   null,  // the svg area
-		boxMove:  false, // set canvas in boxes mode
+		hoovered:  null,  // an object is hovered
+		canvas:    null,  // the svg area
+		boxMove:   false, // set canvas in boxes mode
 		grabModus: null, // 'boxes', 'bound', ''
 		pointermoved: 0,
 		wireRedraw:   0,

@@ -20,9 +20,11 @@ export default {
         return {
             menus: [
                 { link: "/website/urls" ,     icon: "compass",    label: "Urls"     },
-                { link: "/website/pages" ,    icon: "pages",      label: "Pages"    },
+                { link: "/website/pages" ,    icon: "article",    label: "Pages"    },
+                { link: "/website/forms" ,    icon: "form",       label: "Forms"    },
                 { link: "/website/assets" ,   icon: "imagesmode", label: "Assets"   },
                 { link: "/website/settings" , icon: "cog",        label: "Settings" },
+
             ],
         }
     },

@@ -7,7 +7,7 @@
         <div class="login-layout">
             <big-label  label="Sign In" />
             <text-input placeholder="Username" v-model="username" @inFocus="error=false"/>
-            <text-input placeholder="Password" v-model="password" type="password" @inFocus="error=false"/>
+            <text-input placeholder="Password" v-model="password" type="password" @inFocus="error=false" @keyup.enter="login"/>
             <!-- <text-input placeholder="TFA" v-model="tfa" /> -->
             <click-button label="Login" type="primary" @click="login()"/>
             <alert-bar    class="error" :label="msg" type="error" v-if="error"/>
@@ -31,6 +31,7 @@ export default {
     },
 
     methods:{
+
         validate() {
             if (this.username.length < 4) {
                 this.msg= 'Email is a bit short'

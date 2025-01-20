@@ -83,7 +83,6 @@ export default {
 }
 
 .profile-box.isSelected {
-    min-height: 53px;
     background-color: #d0dcb4;
     border-bottom: 1px solid #92b536;
     box-shadow: inset 0 1px #92b536;

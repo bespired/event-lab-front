@@ -2,13 +2,7 @@
     <div class="connect-grid">
         <svg id="connect" v-html="wires" />
         <slot />
-        <div class="debug-info" :data-update="update">
-            <div>{{ pointer.down  }}: {{ pointer.moved }}</div>
-            <div>{{ pointer.tick  }}: {{ pointer.done  }}</div>
-            <div>{{ pointer.pageX }}, {{ pointer.pageY }}</div>
-            <div>{{ pointer.distX }}, {{ pointer.distY }}</div>
-            <div>{{ grabModus }}</div>
-        </div>
+        <debug-info />
     </div>
 </template>
 
@@ -20,6 +14,7 @@ export default {
 
     watch: {
         update(i, o) {
+
             // move boxes modes ...
             if (this.boxmove) {
                 if  (this.pointer.tick) this.$store.dispatch('canvas/setOrigins')
@@ -67,7 +62,6 @@ export default {
         update()    { return this.$store.getters['canvas/ptrMoved']  },
         grabModus() { return this.$store.getters['canvas/grabModus'] },
         hoovered()  { return this.$store.getters['canvas/hoovered']  },
-
     },
 }
 </script>
@@ -96,15 +90,6 @@ export default {
         stroke: blue;
         stroke-width: 1;
         fill: transparent;
-    }
-
-    .connect-grid .debug-info {
-        font-family: monospace;
-        position: absolute;
-        top: 100px; right: 0;
-        background-color: white;
-        color: black;
-        padding: 8px;
     }
 
     /* BOXES */

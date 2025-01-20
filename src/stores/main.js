@@ -80,7 +80,8 @@ export default {
 		// single profile
 		loadProfile(context, handle) {
 			context.state.phandle = handle
-			Profile.loadProfile(context.state)
+			if (handle) Profile.loadProfile(context.state)
+				else context.state.profile = null
 		},
 
 		loadAssets(context, assetType) {

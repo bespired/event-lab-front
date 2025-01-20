@@ -7,8 +7,8 @@
 
 <script setup>
     defineProps({
-        label: String,
-        type:  String,
-        icon:  String,
+        label: {type: String, default: ''},
+        type:  {type: String, default: 'primary'},
+        icon:  {type: String, default: null},
     })
 </script>

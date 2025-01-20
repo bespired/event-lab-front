@@ -1,18 +1,12 @@
 <template>
     <div>
-        <div class="filter-header">
-            <span class="top-right" @click="$emit('completed')">×</span>
-        </div>
-
         {{ profile }}
-
     </div>
-
 </template>
 <script>
 export default {
     props: {
-        handle: { type: Object, default: null },
+        handle: { type: String, default: null },
     },
 
     mounted() {
@@ -24,8 +18,6 @@ export default {
             return this.$store.getters['main/getOneProfile']
         },
     },
-
-
 
 }
 </script>
